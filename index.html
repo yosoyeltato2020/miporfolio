@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio de Ismael López Morales</title>
+    <link rel="stylesheet" href="estilos.css">
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+    <header>
+        <!-- LOGO SVG directamente aquí -->
+        <div class="logo" style="display: flex; align-items: center;">
+            <svg width="170" height="40" viewBox="0 0 340 70" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right:12px;">
+              <rect x="10" y="10" width="50" height="50" rx="15" fill="#a076f9"/>
+              <path d="M35 35L23 47M35 35L23 23" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="70" y="52" fill="#222" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="bold">Ismadev</text>
+              <text x="70" y="67" fill="#7c7c7c" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="bold">Solutions</text>
+            </svg>
+        </div>
+        <nav>
+            <a href="#home" class="active">INICIO</a>
+            <a href="#about">SOBRE MI</a>
+            <a href="#portfolio">PROYECTOS</a>
+            <a href="#blog">BLOG</a>
+            <a href="#contact">CONTACTO</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-left">
+            <h2>HOLA</h2>
+            <h1>SOY <span>ISMAEL LOPEZ MORALES</span></h1>
+            <h3>JUNIOR DESARROLLADOR DE APLICACIONES</h3>
+            <div class="hero-btns">
+                <a href="#contact" class="btn btn-primary">CONTRÁTAME</a>
+                <a href="docs/CV.pdf" class="btn btn-outline" target="_blank">DESCARGA CV</a>
+            </div>
+        </div>
+        <div class="hero-right">
+            <img src="img/banner-image.png" alt="Ilustración desarrollador">
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-img">
+            <img src="img/about-us.png" alt="Ilustración muñeco">
+        </div>
+        <div class="about-info">
+            <h2>ME PRESENTO</h2>
+            <p>
+                Soy desarrollador web con pasión por crear sitios atractivos y funcionales.<br>
+                Me especializo en HTML, CSS, JavaScript y Python.<br>
+                Siempre busco aprender tecnologías nuevas y afrontar nuevos retos.
+            </p>
+            <p>
+                Si tienes un proyecto interesante, ¡contáctame!
+            </p>
+            <p>
+                He participado en concursos para aprender de otros desarrolladores.<br>
+                Y a la misma vez me gusta poder ofrecer mis ideas y mis proyectos.
+            </p>
+        </div>
+        <div class="about-foto-box">
+            <img src="img/ismael.jpeg" alt="Mi foto personal" class="about-foto">
+        </div>
+    </section>
+
+    <section class="portfolio" id="portfolio">
+        <h2>MIS PROYECTOS</h2>
+        <div class="portfolio-items">
+            <div class="portfolio-card">
+                <img src="img/keyness.png" alt="Keyness">
+                <h3>Keyness</h3>
+                <a href="keyness.html" class="btn btn-proyecto" target="_blank">Ver más</a>
+                <img src="img/keyness-demo.png" alt="Demo Keyness" class="proyecto-demo">
+            </div>
+            <div class="portfolio-card">
+                <img src="img/ecotramo.png" alt="EcoTramo">
+                <h3>EcoTramo</h3>
+                <a href="ecotramo.html" class="btn btn-proyecto" target="_blank">Ver más</a>
+                <img src="img/ecotramo-demo.png" alt="Demo EcoTramo" class="proyecto-demo">
+            </div>
+            <div class="portfolio-card">
+                <img src="img/diblo.png" alt="Diblo">
+                <h3>Diblo</h3>
+                <a href="diblo.html" class="btn btn-proyecto" target="_blank">Ver más</a>
+                <img src="img/diblo-demo.png" alt="Demo Diblo" class="proyecto-demo">
+            </div>
+            <div class="portfolio-card">
+                <img src="img/panicgate.png" alt="PanicGate">
+                <h3>PanicGate</h3>
+                <a href="panicgate.html" class="btn btn-proyecto" target="_blank">Ver más</a>
+                <img src="img/panicgate-demo.png" alt="Demo PanicGate" class="proyecto-demo">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-text">
+            © 2025 ISMAEL LOPEZ — Portfolio personal.
+        </div>
+    </footer>
+</body>
+</html>

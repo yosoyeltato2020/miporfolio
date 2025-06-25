@@ -1,0 +1,315 @@
+body {
+    background: #f9f9fb;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #222;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 60px 10px 60px;
+    background: #fff;
+    box-shadow: 0 2px 8px #eee;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.logo {
+    font-weight: 700;
+    font-size: 1.6em;
+    letter-spacing: 2px;
+}
+.dot {
+    color: #a076f9;
+}
+nav a {
+    margin-left: 22px;
+    color: #222;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.05em;
+    transition: color 0.2s;
+    padding-bottom: 4px;
+}
+nav a.active, nav a:hover {
+    color: #a076f9;
+    border-bottom: 2px solid #a076f9;
+}
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 60px 50px 60px;
+    background: #fff;
+}
+.hero-left h2 {
+    color: #ffc107;
+    font-weight: 400;
+    margin: 0 0 8px 0;
+    font-size: 1.5em;
+}
+.hero-left h1 {
+    font-size: 3.2em;
+    margin: 0 0 12px 0;
+    letter-spacing: 2px;
+}
+.hero-left h1 span {
+    color: #222;
+    font-weight: bold;
+}
+.hero-left h3 {
+    color: #444;
+    font-size: 1.3em;
+    margin: 0 0 24px 0;
+    font-weight: 400;
+}
+.hero-btns {
+    display: flex;
+    gap: 18px;
+}
+.btn {
+    padding: 12px 26px;
+    border-radius: 7px;
+    font-size: 1.07em;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.22s, color 0.2s, border 0.2s;
+}
+.btn-primary {
+    background: linear-gradient(90deg, #a076f9 0%, #5d43e2 100%);
+    color: #fff;
+    border: none;
+    box-shadow: 0 1px 6px #a076f94a;
+}
+.btn-primary:hover {
+    background: linear-gradient(90deg, #5d43e2 0%, #a076f9 100%);
+    color: #fff;
+}
+.btn-outline {
+    border: 2px solid #a076f9;
+    background: #fff;
+    color: #a076f9;
+}
+.btn-outline:hover {
+    background: #a076f9;
+    color: #fff;
+}
+.hero-right img {
+    width: 560px;
+    max-width: 70vw;
+    border-radius: 24px;
+}
+
+.about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    background: #b8b8bb;
+    border-radius: 36px;
+    margin: 54px 60px 64px 60px;
+    padding: 64px 60px 64px 60px;
+    box-shadow: 0 4px 32px #d3d3d345;
+    min-height: 580px;
+}
+.about-img img {
+    width: 300px;
+    border-radius: 28px;
+    background: #f4f3fe;
+    padding: 24px;
+}
+.about-foto-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 30px;
+}
+.about-foto {
+    width: 400px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10%;
+    box-shadow: 0 4px 16px #ccc;
+    border: 5px solid #fff;
+}
+.about-info {
+    flex: 1;
+    min-width: 220px;
+}
+.about-info h2 {
+    font-size: 2.1em;
+    line-height: 1.1em;
+    margin-bottom: 16px;
+    letter-spacing: 4px;
+}
+.about-info p {
+    margin-bottom: 18px;
+    color: #333;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+.portfolio {
+    background: #fff;
+    padding: 60px 60px 50px 60px;
+}
+.portfolio h2 {
+    font-size: 2em;
+    margin-bottom: 18px;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+}
+.portfolio-filters {
+    margin-bottom: 34px;
+    display: flex;
+    gap: 16px;
+}
+.portfolio-filters button {
+    padding: 8px 22px;
+    border-radius: 7px;
+    border: none;
+    background: #f4f3fe;
+    color: #a076f9;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1.04em;
+    transition: background 0.2s, color 0.2s;
+}
+.portfolio-filters button.active,
+.portfolio-filters button:hover {
+    background: #a076f9;
+    color: #fff;
+}
+.portfolio-items {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+}
+.portfolio-card {
+    background: #f4f3fe;
+    border-radius: 16px;
+    padding: 24px;
+    width: 210px;
+    box-shadow: 0 2px 7px #eee;
+    text-align: center;
+    transition: transform 0.18s;
+}
+.portfolio-card:hover {
+    transform: translateY(-6px) scale(1.04);
+    box-shadow: 0 8px 24px #a076f950;
+}
+.portfolio-card img {
+    width: 160px;
+    border-radius: 10px;
+    margin-bottom: 16px;
+}
+.portfolio-card h3 {
+    font-size: 1.1em;
+    margin: 0;
+    color: #3a266a;
+}
+
+/* ---------- ESTILOS NUEVOS PARA EL BOTÓN DE PROYECTO Y LA PÁGINA DE DETALLE ---------- */
+.btn-proyecto {
+    margin-top: 14px;
+    background: linear-gradient(90deg, #a076f9 0%, #5d43e2 100%);
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    padding: 10px 22px;
+    font-size: 1em;
+    font-weight: 500;
+    text-decoration: none;
+    box-shadow: 0 2px 8px #cfcfff5c;
+    transition: background 0.19s, transform 0.16s;
+    display: inline-block;
+}
+.btn-proyecto:hover {
+    background: linear-gradient(90deg, #5d43e2 0%, #a076f9 100%);
+    color: #fff;
+    transform: scale(1.08);
+}
+.detalle-proyecto {
+    max-width: 700px;
+    margin: 50px auto;
+    background: #fff;
+    border-radius: 16px;
+    padding: 38px;
+    box-shadow: 0 4px 24px #dadada56;
+    text-align: center;
+}
+.detalle-proyecto h1 {
+    margin-bottom: 24px;
+    color: #5836a7;
+    font-size: 2.2em;
+}
+.detalle-img {
+    max-width: 280px;
+    border-radius: 12px;
+    margin-bottom: 32px;
+    box-shadow: 0 2px 8px #a6a6e067;
+}
+
+footer {
+    margin-top: 36px;
+    text-align: center;
+    padding: 18px 0;
+    background: #fff;
+    font-size: 1em;
+    color: #888;
+    letter-spacing: 1px;
+}
+@media (max-width: 1100px) {
+    .about-img img,
+    .about-foto {
+        width: 120px !important;
+        height: 120px !important;
+        padding: 12px !important;
+    }
+    .hero-right img {
+        width: 250px !important;
+    }
+}
+@media (max-width: 900px) {
+    .hero, .about, .portfolio {
+        flex-direction: column;
+        padding: 30px 10vw;
+        align-items: center;
+    }
+    .hero-right img, .about-img img, .about-foto {
+        width: 200px !important;
+        height: 200px !important;
+    }
+    .portfolio-items {
+        justify-content: center;
+    }
+}
+@media (max-width: 600px) {
+    header, .hero, .about, .portfolio {
+        padding-left: 3vw;
+        padding-right: 3vw;
+    }
+    .hero-right img, .about-img img, .about-foto {
+        width: 120px !important;
+        height: 120px !important;
+    }
+    .portfolio-card {
+        width: 98vw;
+        max-width: 350px;
+    }
+}
+.proyecto-demo {
+    margin-top: 12px;
+    width: 90%;
+    max-width: 170px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px #dadada60;
+    object-fit: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
