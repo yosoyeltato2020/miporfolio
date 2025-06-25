@@ -2,29 +2,378 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Keyness | Portfolio de Ismael López</title>
+    <title>Keyness - Acceso Seguro por QR | Ismadev Solutions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Keyness: Controla el acceso a tu empresa con QR cifrado, doble factor y máxima seguridad. Demo gratuita.">
     <link rel="stylesheet" href="estilos.css">
+    <style>
+        body {
+            background: #f9f9fb;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            color: #222;
+            margin: 0;
+            padding: 0;
+        }
+        .keyness-hero {
+            background: linear-gradient(100deg, #a076f9 0%, #fff 95%);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 6vw 32px 6vw;
+            min-height: 430px;
+            gap: 30px;
+            border-bottom-left-radius: 48px;
+            border-bottom-right-radius: 48px;
+            box-shadow: 0 8px 30px #b5a9ff33;
+        }
+        .keyness-hero-left {
+            flex: 1.1;
+        }
+        .keyness-hero-title {
+            font-size: 2.7em;
+            font-weight: 800;
+            color: #4d27bc;
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+        }
+        .keyness-hero-subtitle {
+            font-size: 1.22em;
+            color: #444;
+            margin-bottom: 32px;
+            max-width: 480px;
+        }
+        .cta-main {
+            background: linear-gradient(90deg, #5d43e2 0%, #a076f9 100%);
+            color: #fff;
+            font-size: 1.15em;
+            border: none;
+            border-radius: 7px;
+            padding: 14px 38px;
+            cursor: pointer;
+            box-shadow: 0 4px 16px #a076f950;
+            font-weight: 600;
+            margin-bottom: 14px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.18s;
+        }
+        .cta-main:hover {
+            background: linear-gradient(90deg, #a076f9 0%, #5d43e2 100%);
+            color: #fff;
+        }
+        .keyness-hero-imgbox {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .keyness-hero-imgbox img {
+            width: 320px;
+            max-width: 95vw;
+            border-radius: 25px;
+            box-shadow: 0 8px 32px #ccc3fa55;
+        }
+        .features-section {
+            max-width: 1100px;
+            margin: 58px auto 24px auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 44px 36px;
+            justify-content: center;
+        }
+        .feature-card {
+            flex: 1 1 240px;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 2px 12px #bcb3e922;
+            padding: 34px 26px 24px 26px;
+            text-align: center;
+            min-width: 230px;
+            max-width: 325px;
+            transition: transform 0.14s;
+        }
+        .feature-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 12px 30px #a076f93a;
+        }
+        .feature-icon {
+            font-size: 2.7em;
+            margin-bottom: 13px;
+        }
+        .feature-title {
+            font-size: 1.13em;
+            font-weight: bold;
+            color: #513697;
+            margin-bottom: 9px;
+        }
+        .feature-desc {
+            color: #222;
+            font-size: 1.05em;
+        }
+        .section-title {
+            color: #5d43e2;
+            font-size: 2em;
+            text-align: center;
+            margin: 64px 0 22px 0;
+            letter-spacing: 1px;
+        }
+        .steps-section {
+            background: #fff;
+            border-radius: 20px;
+            max-width: 1000px;
+            margin: 36px auto 0 auto;
+            box-shadow: 0 2px 20px #eae1ff3a;
+            padding: 38px 30px;
+        }
+        .steps-list {
+            display: flex;
+            justify-content: space-around;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+        .step-item {
+            flex: 1 1 145px;
+            min-width: 145px;
+            max-width: 180px;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        .step-icon {
+            font-size: 2.2em;
+            margin-bottom: 8px;
+            color: #ffc107;
+        }
+        .step-title {
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #463ae0;
+        }
+        .step-desc {
+            font-size: 0.97em;
+            color: #333;
+        }
+        .forwho-section {
+            max-width: 900px;
+            margin: 44px auto 28px auto;
+            background: #faf8ff;
+            border-radius: 18px;
+            box-shadow: 0 2px 18px #e1d4fa26;
+            padding: 36px 30px 18px 30px;
+        }
+        .forwho-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: center;
+            margin-top: 18px;
+        }
+        .forwho-item {
+            background: #fff;
+            border-radius: 13px;
+            box-shadow: 0 2px 10px #d8ccf633;
+            padding: 22px 18px 17px 18px;
+            text-align: center;
+            min-width: 140px;
+            font-size: 1.04em;
+            flex: 1 1 130px;
+            max-width: 220px;
+        }
+        .security-section {
+            max-width: 1100px;
+            margin: 55px auto 0 auto;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 2px 14px #d8ccf636;
+            padding: 44px 30px 36px 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+        }
+        .security-left {
+            flex: 1.3;
+        }
+        .security-title {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #463ae0;
+            margin-bottom: 18px;
+        }
+        .security-features {
+            list-style: none;
+            padding: 0;
+        }
+        .security-features li {
+            margin-bottom: 12px;
+            font-size: 1.07em;
+        }
+        .security-iconbox {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .security-iconbox img {
+            width: 210px;
+            border-radius: 20px;
+            box-shadow: 0 2px 14px #a6a6e064;
+        }
+        .demo-section {
+            max-width: 700px;
+            margin: 58px auto 0 auto;
+            text-align: center;
+        }
+        .demo-section img {
+            max-width: 330px;
+            border-radius: 18px;
+            margin-bottom: 18px;
+            box-shadow: 0 2px 12px #d7cdfa44;
+        }
+        .footer {
+            margin-top: 68px;
+            text-align: center;
+            padding: 28px 0 18px 0;
+            background: #fff;
+            font-size: 1.05em;
+            color: #888;
+            letter-spacing: 1px;
+            border-top: 1px solid #f1eefb;
+        }
+        @media (max-width: 850px) {
+            .keyness-hero { flex-direction: column-reverse; padding: 44px 2vw 20px 2vw; gap:18px;}
+            .keyness-hero-imgbox img { width: 210px;}
+            .features-section { gap: 30px 8px;}
+            .security-section { flex-direction: column;}
+            .security-iconbox img { width: 140px;}
+        }
+        @media (max-width: 600px) {
+            .keyness-hero, .features-section, .steps-section, .forwho-section, .security-section, .demo-section { padding: 10px 2vw;}
+            .step-item, .feature-card, .forwho-item { min-width: 90vw; max-width: 98vw;}
+        }
+    </style>
+    <!-- ICONS FONT AWESOME (Cargar CDN solo si hace falta) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
     <header>
         <div class="logo">PORTFOLIO PERSONAL<span class="dot">.</span></div>
         <img src="img/logo.svg" alt="Logo Ismadev Solutions" style="height:54px;">
-
         <nav>
             <a href="index.html">INICIO</a>
             <a href="index.html#about">SOBRE MI</a>
             <a href="index.html#portfolio">PROYECTOS</a>
-            <!-- ... -->
         </nav>
     </header>
-    <main class="detalle-proyecto">
-        <h1>KEYNESS</h1>
-        <img src="img/keyness.png" alt="Keyness" class="detalle-img">
-        <p>
-            Aquí va una explicación completa de tu proyecto KEYNESS:<br>
-            ¿Qué es?, ¿para qué sirve?, tecnologías usadas, principales retos, capturas de pantalla, etc.
-        </p>
-        <a href="index.html#portfolio" class="btn btn-outline">Volver</a>
-    </main>
+
+    <!-- HERO PRINCIPAL -->
+    <section class="keyness-hero">
+        <div class="keyness-hero-left">
+            <h1 class="keyness-hero-title">Keyness<br>Acceso seguro y sin contraseñas</h1>
+            <div class="keyness-hero-subtitle">
+                Convierte tu móvil en la llave inteligente de tu empresa.<br>
+                <b>Controla accesos, protege tu información y olvida las contraseñas</b> con QR cifrado y doble factor. Simple, rápido y sin instalar apps.
+            </div>
+            <a href="mailto:info@ismadevsolutions.com" class="cta-main">Solicita demo</a>
+        </div>
+        <div class="keyness-hero-imgbox">
+            <img src="img/keyness_mockup.png" alt="Demo Keyness QR">
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <h2 class="section-title">¿Por qué Keyness?</h2>
+    <section class="features-section">
+        <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-lock"></i></div>
+            <div class="feature-title">QR único y cifrado</div>
+            <div class="feature-desc">Cada acceso genera un QR temporal cifrado imposible de reutilizar o compartir.</div>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-user-shield"></i></div>
+            <div class="feature-title">Doble factor flexible</div>
+            <div class="feature-desc">Añade seguridad extra con horario, geolocalización, NFC o el factor que tu negocio necesite.</div>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-camera"></i></div>
+            <div class="feature-title">Sin instalar nada</div>
+            <div class="feature-desc">Solo necesitas la cámara de cualquier móvil: sin apps, sin complicaciones, sin fricción.</div>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-certificate"></i></div>
+            <div class="feature-title">Cifrado extremo a extremo</div>
+            <div class="feature-desc">Protección total con HTTPS, certificados SSL automáticos y cifrado avanzado (Fernet).</div>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-plug-circle-check"></i></div>
+            <div class="feature-title">Fácil integración</div>
+            <div class="feature-desc">Conecta Keyness con cualquier aplicación, PC o sistema. ¡Escalable para empresas grandes y pequeñas!</div>
+        </div>
+    </section>
+
+    <!-- CÓMO FUNCIONA -->
+    <h2 class="section-title">¿Cómo funciona?</h2>
+    <section class="steps-section">
+        <div class="steps-list">
+            <div class="step-item">
+                <div class="step-icon"><i class="fa-solid fa-right-to-bracket"></i></div>
+                <div class="step-title">1. Login</div>
+                <div class="step-desc">El usuario inicia sesión en su PC o app con usuario y contraseña.</div>
+            </div>
+            <div class="step-item">
+                <div class="step-icon"><i class="fa-solid fa-qrcode"></i></div>
+                <div class="step-title">2. Escanea el QR</div>
+                <div class="step-desc">El sistema genera un QR único y cifrado; escanéalo con el móvil.</div>
+            </div>
+            <div class="step-item">
+                <div class="step-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                <div class="step-title">3. Acceso seguro</div>
+                <div class="step-desc">El servidor valida y concede el acceso solo si todo es correcto y seguro.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARA QUIÉN ES -->
+    <h2 class="section-title">Pensado para...</h2>
+    <section class="forwho-section">
+        <div class="forwho-list">
+            <div class="forwho-item"><i class="fa-solid fa-building"></i><br>Empresas y startups</div>
+            <div class="forwho-item"><i class="fa-solid fa-chalkboard-user"></i><br>Colegios y universidades</div>
+            <div class="forwho-item"><i class="fa-solid fa-flask"></i><br>Laboratorios y hospitales</div>
+            <div class="forwho-item"><i class="fa-solid fa-briefcase"></i><br>Coworkings y despachos</div>
+            <div class="forwho-item"><i class="fa-solid fa-hotel"></i><br>Hoteles y bibliotecas</div>
+            <div class="forwho-item"><i class="fa-solid fa-users"></i><br>Cualquier organización</div>
+        </div>
+    </section>
+
+    <!-- SEGURIDAD Y TECNOLOGÍA -->
+    <section class="security-section">
+        <div class="security-left">
+            <div class="security-title">🔒 Seguridad real, tecnología de verdad</div>
+            <ul class="security-features">
+                <li><i class="fa-solid fa-shield-halved" style="color:#a076f9;"></i> Cifrado simétrico Fernet/PBKDF2-HMAC</li>
+                <li><i class="fa-solid fa-certificate" style="color:#ffc107;"></i> Certificados SSL que se regeneran si cambia la red</li>
+                <li><i class="fa-solid fa-hourglass-half" style="color:#5d43e2;"></i> Tokens temporales, un solo uso, imposibles de clonar</li>
+                <li><i class="fa-solid fa-user-check" style="color:#27c21c;"></i> Control total de accesos y registros</li>
+                <li><i class="fa-solid fa-layer-group" style="color:#a076f9;"></i> Doble factor personalizable (hora, GPS, NFC...)</li>
+                <li><i class="fa-solid fa-laptop-code" style="color:#3f3a90;"></i> Código abierto, integración fácil y soporte profesional</li>
+            </ul>
+        </div>
+        <div class="security-iconbox">
+            <img src="img/keyness_seguridad.png" alt="Seguridad Keyness">
+        </div>
+    </section>
+
+    <!-- DEMO Y CAPTURAS -->
+    <section class="demo-section">
+        <h2 class="section-title">Demo y capturas</h2>
+        <img src="img/keyness_qr_demo.png" alt="Demo QR Keyness">
+        <br>
+        <a href="mailto:info@ismadevsolutions.com" class="cta-main" style="margin-top: 20px;">Solicita tu demo personalizada</a>
+        <br>
+        <a href="https://github.com/tuusuario/keyness" target="_blank" class="btn btn-outline" style="margin-top:18px;display:inline-block;">Ver código en GitHub</a>
+    </section>
+
+    <footer class="footer">
+        &copy; 2024 Ismael López — Ismadev Solutions · Made with 💜
+    </footer>
 </body>
 </html>
