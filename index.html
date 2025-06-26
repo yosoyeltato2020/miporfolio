@@ -24,7 +24,7 @@
             <a href="#about">SOBRE MI</a>
             <a href="#portfolio">PROYECTOS</a>
             <a href="#blog">BLOG</a>
-            <a href="#contact">CONTACTO</a>
+            <a href="#contacto">CONTACTO</a>
         </nav>
     </header>
 
@@ -34,7 +34,7 @@
             <h1>SOY <span>ISMAEL LOPEZ MORALES</span></h1>
             <h3>JUNIOR DESARROLLADOR DE APLICACIONES</h3>
             <div class="hero-btns">
-                <a href="#contact" class="btn btn-primary">CONTRÁTAME</a>
+                <a href="#contacto" class="btn btn-primary">CONTRÁTAME</a>
                 <a href="docs/CV.pdf" class="btn btn-outline" target="_blank">DESCARGA CV</a>
             </div>
         </div>
@@ -86,16 +86,113 @@
                 <img src="img/diblo.png" alt="Diblo">
                 <h3>Diblo</h3>
                 <a href="diblo.html" class="btn btn-proyecto" target="_blank">Ver más</a>
-                <img src="img/diblo-demo.png" alt="Demo Diblo" class="proyecto-demo">
+                <img src="img/diblo-demo.png" alt="Demo Diblo" class="proyecto-demo centrada">
             </div>
             <div class="portfolio-card">
                 <img src="img/panicgate.png" alt="PanicGate">
                 <h3>PanicGate</h3>
                 <a href="panicgate.html" class="btn btn-proyecto" target="_blank">Ver más</a>
-                <img src="img/panicgate-demo.png" alt="Demo PanicGate" class="proyecto-demo">
+                <img src="img/panicgate-demo.png" alt="Demo PanicGate" class="proyecto-demo centrada">
             </div>
         </div>
     </section>
+
+    <!-- SECCIÓN DE CONTACTO ELEGANTE Y FUNCIONAL -->
+    <section id="contacto" class="contacto-section" style="
+        max-width: 480px; 
+        margin: 90px auto 90px auto; 
+        background: linear-gradient(120deg, #faf8ff 60%, #e7e2fa 100%);
+        border-radius: 22px;
+        box-shadow: 0 12px 44px #a076f928, 0 1.5px 12px #e2e2f8;
+        padding: 44px 36px 36px 36px;
+        border: 1.2px solid #d5d2e8;">
+      <h2 style="color:#5d43e2; text-align:center; margin-bottom:25px; letter-spacing:1.5px; font-weight: 700; font-size: 2em;">Contacto</h2>
+      <div style="text-align:center; margin-bottom:24px;">
+        <p style="font-size:1.19em; margin-bottom:10px; font-weight: 600;">
+          <span style="color:#a076f9;">Ismael López</span>
+        </p>
+        <p style="margin-bottom:2px;">
+          <i class="fa-solid fa-envelope" style="color:#a076f9; font-size:1.15em; margin-right:6px;"></i>
+          <a href="mailto:yosoyeltato2020@hotmail.com" style="color:#5d43e2; font-weight:500;">yosoyeltato2020@hotmail.com</a>
+        </p>
+        <p>
+          <i class="fa-solid fa-phone" style="color:#27ae60; font-size:1.15em; margin-right:6px;"></i>
+          <a href="tel:+34638315035" style="color:#222; font-weight:500;">638 315 035</a>
+        </p>
+      </div>
+      <form id="form-contacto" action="https://formspree.io/f/xanjlryk" method="POST" 
+            style="display:flex; flex-direction:column; gap:18px;">
+        <input type="text" name="nombre" placeholder="Tu nombre" required 
+            style="padding:13px 14px; border-radius:9px; border:1.6px solid #c9bef7; font-size:1.09em; background:#f6f3fd; outline-color:#a076f9;">
+        <input type="email" name="email" placeholder="Tu email" required 
+            style="padding:13px 14px; border-radius:9px; border:1.6px solid #c9bef7; font-size:1.09em; background:#f6f3fd; outline-color:#a076f9;">
+        <input type="text" name="telefono" placeholder="Tu teléfono (opcional)" 
+            style="padding:13px 14px; border-radius:9px; border:1.6px solid #c9bef7; font-size:1.09em; background:#f6f3fd; outline-color:#a076f9;">
+        <textarea name="mensaje" rows="4" placeholder="Escribe tu mensaje..." required
+            style="padding:13px 14px; border-radius:9px; border:1.6px solid #c9bef7; font-size:1.09em; background:#f6f3fd; outline-color:#a076f9;"></textarea>
+        <button type="submit" class="cta-main" style="
+            width:100%; 
+            margin-top:8px; 
+            background:linear-gradient(90deg,#a076f9 0%,#5d43e2 100%);
+            color:#fff; 
+            border:none; 
+            border-radius:9px; 
+            font-size:1.18em; 
+            font-weight:600; 
+            padding:14px 0;
+            box-shadow: 0 2px 8px #bca7e850;
+            letter-spacing:0.5px;
+            transition:background 0.22s,transform 0.16s;">
+          <i class="fa-solid fa-paper-plane"></i> Enviar
+        </button>
+        <p style="font-size:0.95em; color:#888; text-align:center; margin-top:0px;">Tus datos solo se usarán para responderte.<br>No se guardan en ninguna base de datos.</p>
+      </form>
+      <!-- Mensaje de éxito oculto por defecto -->
+      <div id="gracias-contacto" style="display:none; text-align:center; padding:34px 8px 16px 8px;">
+        <i class="fa-solid fa-circle-check" style="font-size:3em; color:#35b96c; margin-bottom:12px; animation:bounce 1s;"></i>
+        <h3 style="color:#5d43e2; margin:12px 0 8px 0; font-size:1.44em;">¡Gracias por tu mensaje!</h3>
+        <p style="font-size:1.15em; color:#444;">En breve te responderé personalmente.<br>
+        Si lo prefieres, puedes escribirme directamente a<br>
+        <a href="mailto:yosoyeltato2020@hotmail.com" style="color:#5d43e2; font-weight:600;">yosoyeltato2020@hotmail.com</a></p>
+      </div>
+      <style>
+        @keyframes bounce {
+          0%   { transform: scale(1);}
+          50%  { transform: scale(1.3);}
+          100% { transform: scale(1);}
+        }
+        @media (max-width:600px){
+          .contacto-section { padding: 12vw 3vw 10vw 3vw !important; max-width:97vw !important;}
+        }
+      </style>
+    </section>
+
+    <script>
+    // Mostrar mensaje de gracias al enviar
+    document.addEventListener("DOMContentLoaded", function() {
+      var form = document.getElementById('form-contacto');
+      var gracias = document.getElementById('gracias-contacto');
+      if(form){
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          fetch(form.action, {
+            method: "POST",
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+          }).then(function(response) {
+            if (response.ok) {
+              form.style.display = "none";
+              gracias.style.display = "block";
+            } else {
+              alert("Hubo un error enviando tu mensaje. Por favor, inténtalo de nuevo.");
+            }
+          }).catch(function(error) {
+            alert("Hubo un error enviando tu mensaje. Por favor, inténtalo de nuevo.");
+          });
+        });
+      }
+    });
+    </script>
 
     <footer>
         <div class="footer-text">
