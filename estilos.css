@@ -313,3 +313,21 @@ footer {
     margin-left: auto;
     margin-right: auto;
 }
+
+/* Solo centra vertical y horizontalmente las demo de Diblo y PanicGate */
+.portfolio-card {
+    position: relative;
+}
+
+/* Nuevo contenedor flex solo para las imágenes con clase centrada */
+.portfolio-card .centrada {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;    /* Ajusta para mayor centrado vertical */
+    margin-bottom: 20px; /* Ajusta a gusto */
+    /* Para asegurar que no queda muy pequeña ni muy grande */
+    max-width: 80%;
+    max-height: 150px;
+    object-fit: contain;
+}
