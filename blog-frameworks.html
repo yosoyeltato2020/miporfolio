@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Frameworks Gráficos Python 2025 — Blog Premium | Ismadev Solutions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Comparativa definitiva de frameworks gráficos Python 2025 para empresas. Elige el mejor: PySide6, PyQt, Tkinter, wxPython, Kivy, Pygame.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {background: #f9f9fb; font-family: 'Montserrat', Arial, sans-serif; color: #222; margin:0;}
+        header {
+            background: linear-gradient(90deg,#a076f9 0,#fff 80%);
+            padding: 36px 0 18px 0; box-shadow: 0 8px 38px #a076f95c;
+            border-bottom-left-radius: 32px; border-bottom-right-radius: 32px; text-align:center;
+        }
+        .logo {font-family:'Fredoka',Arial,sans-serif;font-size:2.05em;color:#fff;margin-bottom:10px; text-shadow: 0 4px 28px #a076f9a6;}
+        nav a {margin: 0 17px; color:#5d43e2; text-decoration:none; font-weight:600; font-size:1.1em;}
+        nav a:hover, nav a.active {color:#f26232;}
+        .blog-title {font-family:'Fredoka',Arial,sans-serif;font-size:2.2em;color:#fff;margin-bottom:5px; text-shadow: 0 4px 28px #a076f9a6;}
+        .blog-sub {font-size:1.13em;color:#32187a;margin-bottom:16px;}
+        .fecha {color:#fff;font-size:0.99em;margin-bottom:14px;}
+        .hero-art {margin: 22px auto 0 auto; display: flex; align-items: center; justify-content: center; gap: 24px;}
+        .hero-art img {width: 78px; border-radius: 14px; box-shadow: 0 4px 18px #a076f92b;}
+        .btn-descargar {
+            display:inline-block;background:linear-gradient(90deg,#a076f9 70%,#f26232 100%);
+            color:#fff;padding:12px 28px;margin:36px 0 32px 0;
+            border:none;border-radius:12px;font-size:1.07em;font-weight:600;
+            box-shadow:0 2px 18px #a076f95a;text-decoration:none;transition:background .2s,box-shadow .2s;
+            letter-spacing:0.6px;
+        }
+        .btn-descargar:hover {background:linear-gradient(90deg,#f26232 60%,#a076f9 100%);box-shadow:0 8px 38px #f2623298;}
+        .fw-section {margin:55px auto 30px auto;max-width:950px;}
+        .fw-title {font-family:'Fredoka',Arial,sans-serif;font-size:1.5em;color:#5d43e2;margin-bottom:10px;}
+        .fw-cards {display:flex;flex-wrap:wrap;gap:16px 16px;justify-content:center;}
+        .fw-card {
+            background: linear-gradient(160deg, #fff 80%, #f6f3fe 100%);
+            border-radius: 21px;
+            box-shadow: 0 8px 28px #a076f928;
+            padding: 23px 19px 15px 19px;
+            max-width: 340px; min-width:200px;
+            flex: 1 1 250px;
+            margin-bottom:16px;
+            text-align: left;
+            transition: transform 0.19s, box-shadow 0.18s;
+            display: flex; flex-direction:column; align-items:flex-start;
+            position:relative;animation:bounceIn 1.06s;
+        }
+        .fw-card:hover {transform:scale(1.07) rotate(-1.5deg);box-shadow:0 20px 34px #a076f95c;}
+        @keyframes bounceIn {
+            0% { transform: scale(0.77); opacity: 0;}
+            70% { transform: scale(1.12);}
+            100% { transform: scale(1); opacity: 1;}
+        }
+        .fw-icon {font-size:2.15em;margin-bottom:12px; color:#a076f9;}
+        .fw-nombre {font-size:1.18em;font-family:'Fredoka',Arial,sans-serif;color:#a076f9;font-weight:700;}
+        .fw-etiqueta {
+            position:absolute;right:17px;top:15px;
+            background: linear-gradient(90deg,#fcb654 60%,#f26232 100%);
+            color:#fff;border-radius:8px;
+            padding:5px 13px;font-size:0.94em; box-shadow:0 1px 6px #f262324a;
+            letter-spacing: 0.5px; font-weight: 600;
+        }
+        .fw-etiqueta.sec {background:linear-gradient(90deg,#a076f9 70%,#5d43e2 100%);}
+        .fw-desc {color:#555;font-size:1em;margin-bottom:8px;}
+        .fw-pros {color:#1c913d;margin-bottom:4px;}
+        .fw-contras {color:#e34a27;margin-bottom:4px;}
+        .fw-pros i, .fw-contras i {margin-right:6px;}
+        .fw-detail {font-size:0.98em;line-height:1.65;margin:10px 0 3px 0;}
+        .tabla-comp {margin:46px auto 42px auto;border-collapse:collapse;box-shadow:0 6px 30px #a076f965;font-size:1.09em;}
+        .tabla-comp th,.tabla-comp td{padding:12px 18px;border:1px solid #d9ccfc;}
+        .tabla-comp th {background:#a076f9;color:#fff;letter-spacing:1px;}
+        .tabla-comp tr:nth-child(even){background:#faf6fe;}
+        .tabla-comp td {text-align:center;}
+        .mi-opinion {
+            background: linear-gradient(100deg,#fff6eb 0,#ece4fe 100%);
+            border-left:8px solid #f26232;
+            padding:23px 21px 15px 28px;
+            margin:48px auto 38px auto;
+            max-width:700px;border-radius:14px;font-size:1.14em;box-shadow:0 2px 22px #a076f914;
+        }
+        .cierre {
+            text-align:center;font-size:1.15em;margin:54px 0 36px 0;color:#a076f9;font-weight:600;
+            letter-spacing: 1.4px;
+        }
+        .enlace {color:#a076f9;text-decoration:underline;}
+        .enlace:hover {color:#f26232;}
+        .avatar {margin:26px auto 0 auto;width:85px;height:85px;border-radius:50%;overflow:hidden;box-shadow:0 3px 18px #a076f98c;}
+        .avatar img {width:100%;height:100%;object-fit:cover;}
+        .autor {text-align:center;font-family:'Fredoka',Arial,sans-serif;color:#5d43e2;font-weight:600;font-size:1.07em;letter-spacing:0.5px;margin-top:8px;}
+        @media (max-width: 1100px) { .fw-cards {flex-direction:column;align-items:center;} .fw-card{max-width:98vw;} .tabla-comp{font-size:1em;} }
+        @media (max-width: 750px) { header {padding:22px 0 8px 0;} .hero-art{flex-direction:column;gap:6px;} }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Ismadev <span style="font-weight:300;">Solutions</span></div>
+        <nav>
+            <a href="index.html">INICIO</a>
+            <a href="index.html#about">SOBRE MI</a>
+            <a href="index.html#portfolio">PROYECTOS</a>
+            <a href="blog-frameworks.html" class="active">BLOG</a>
+            <a href="index.html#contacto">CONTACTO</a>
+        </nav>
+        <div class="blog-title"><i class="fa-solid fa-laptop-code"></i> Frameworks Gráficos de Python en 2025</div>
+        <div class="blog-sub">La comparativa definitiva para empresas: rendimiento, facilidad y futuro</div>
+        <div class="fecha"><i class="fa-regular fa-calendar"></i> 29 de junio de 2025</div>
+        <div class="avatar">
+            <img src="img/ismael.jpeg" alt="Ismael López Morales">
+        </div>
+        <div class="autor">
+            Por Ismael López Morales &bull; Desarrollador de aplicaciones Python
+        </div>
+        <div class="hero-art">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/TkInterPython.png" alt="Tkinter logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/PyQt_logo.png" alt="PyQt logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Kivy_logo.png" alt="Kivy logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/34/WxPython-logo.png" alt="wxPython logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/76/Pygame_logo.svg" alt="Pygame logo">
+        </div>
+        <a href="Comparativa%20de%20frameworks%20gr%C3%A1ficos%20de%20Python%20en%202025.pdf" class="btn-descargar" download>
+            <i class="fa-solid fa-file-arrow-down"></i> Descargar PDF original de la comparativa
+        </a>
+    </header>
+
+    <section class="fw-section">
+        <div class="fw-title">¿Por qué elegir bien el framework GUI en 2025?</div>
+        <p>
+            Elegir el <b>framework gráfico adecuado en Python</b> determina el éxito de tu proyecto: influye en la velocidad de desarrollo, la experiencia de usuario y el mantenimiento a largo plazo. En 2025, la variedad es mayor que nunca, y la decisión entre <b>PySide6, PyQt6, Tkinter, wxPython, Kivy y Pygame</b> depende de tus necesidades, objetivos y recursos.
+        </p>
+    </section>
+
+    <section class="fw-section">
+        <div class="fw-title">Comparativa rápida de frameworks (2025)</div>
+        <table class="tabla-comp">
+            <tr>
+                <th>Framework</th>
+                <th>Plataformas</th>
+                <th>Licencia</th>
+                <th>Facilidad empresa</th>
+                <th>Comunidad 2025</th>
+                <th>UX/rendimiento</th>
+                <th>Casos de uso</th>
+            </tr>
+            <tr>
+                <td><b>Tkinter</b></td>
+                <td>Windows, macOS, Linux</td>
+                <td>PSF (permisiva)</td>
+                <td>Muy fácil. Integrado, ideal para prototipos</td>
+                <td>Grande y clásica</td>
+                <td>Básica, look clásico</td>
+                <td>Herramientas simples, educación, prototipos</td>
+            </tr>
+            <tr>
+                <td><b>PyQt</b></td>
+                <td>Windows, macOS, Linux (Android posible)</td>
+                <td>GPL v3 / Comercial</td>
+                <td>Completo, curva mayor, potente</td>
+                <td>Enorme, docs top</td>
+                <td>Profesional, nativa, muy potente</td>
+                <td>Apps empresariales, ciencia, Calibre, Spyder</td>
+            </tr>
+            <tr>
+                <td><b>PySide</b></td>
+                <td>Windows, macOS, Linux (Android posible)</td>
+                <td>LGPL (gratuita)</td>
+                <td>Como PyQt, libre para apps cerradas</td>
+                <td>Grande, oficial Qt</td>
+                <td>Profesional, nativa, robusta</td>
+                <td>Empresa, apps avanzadas, ciencia</td>
+            </tr>
+            <tr>
+                <td><b>Kivy</b></td>
+                <td>Win, Mac, Linux, Android, iOS</td>
+                <td>MIT</td>
+                <td>Moderna, curva media, móvil+desktop</td>
+                <td>Mediana, activa</td>
+                <td>Moderna, touch, animaciones</td>
+                <td>Móviles, kioskos, prototipos, ProcessCraft</td>
+            </tr>
+            <tr>
+                <td><b>wxPython</b></td>
+                <td>Windows, macOS, Linux</td>
+                <td>LGPL-like</td>
+                <td>Intermedia, look nativo, sencilla</td>
+                <td>Histórica, estable</td>
+                <td>Nativa, estable, fiable</td>
+                <td>Utilidades, ciencia, Task Coach</td>
+            </tr>
+            <tr>
+                <td><b>Pygame</b></td>
+                <td>Win, Mac, Linux (móvil experimental)</td>
+                <td>LGPL</td>
+                <td>Ideal para juegos, no para apps clásicas</td>
+                <td>Grande, juegos/educación</td>
+                <td>2D rápido, totalmente custom</td>
+                <td>Juegos, prototipos interactivos</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- CARDS DE FRAMEWORKS -->
+    <section class="fw-section">
+        <div class="fw-title"><i class="fa-solid fa-cubes"></i> Análisis por framework (2025)</div>
+        <div class="fw-cards">
+
+            <div class="fw-card">
+                <div class="fw-icon"><i class="fa-solid fa-cube"></i></div>
+                <div class="fw-nombre">Tkinter</div>
+                <div class="fw-etiqueta sec">¡Súper fácil!</div>
+                <div class="fw-desc"><b>El estándar de Python</b>. Integrado, inmediato y muy documentado. Mejor para prototipos, educación y utilidades internas.</div>
+                <ul class="fw-detail">
+                  <li class="fw-pros"><i class="fa-solid fa-check"></i> Sin dependencias ni licencias</li>
+                  <li class="fw-pros"><i class="fa-solid fa-check"></i> Muy fácil para principiantes</li>
+                  <li class="fw-contras"><i class="fa-solid fa-xmark"></i> Aspecto clásico y limitado</li>
+                  <li class="fw-contras"><i class="fa-solid fa-xmark"></i> Escalabilidad limitada</li>
+                </ul>
+            </div>
+
+            <div class="fw-card">
+                <div class="fw-icon"><i class="fa-solid fa-layer-group"></i></div>
+                <div class="fw-nombre">PyQt</div>
+                <div class="fw-etiqueta">Top profesional</div>
+                <div class="fw-desc"><b>Binding de Qt</b>. Potencia máxima y visual moderno. Licencia GPL o de pago, recomendada para apps abiertas o empresas con licencia.</div>
+                <ul class="fw-detail">
+                  <li class="fw-pros"><i class="fa-solid fa-check"></i> Completo: widgets, multimedia, web</li>
+                  <li class="fw-pros"><i class="fa-solid fa-check"></i> Comunidad y documentación gigantes</li>
+                  <li class="fw-contras"><i class="fa-solid fa-xmark"></i> GPL requiere publicar código o pagar</li>
+                  <li class="fw-contras"><i class="fa-solid fa-xmark"></i> App más pesada</li>
+                </ul>
+            </div>
+
+            <div class="fw-card">
+                <div class="fw-icon"><i class="fa-solid fa-layer-group"></i></div>
+                <div class="fw-nombre">PySide</div>
+                <div class="fw-etiqueta sec">Qt oficial, libre</div>
+                <div class="fw-desc"><b>Qt for Python</b>, pero licencia LGPL, ideal para empresas. Recomendada para proyectos serios o de gran equipo.</div>
+                <ul class="fw-detail">
+                  <li class="fw-pros"><i class="fa-solid fa-check"></i> Todo el poder de Qt sin pagar</li>
+                  <li class="fw-pros"><i class="fa-solid fa-check"></i> Mismo tooling profesional que PyQt</li>
+                  <li class="fw-contras"><i class="fa-solid fa-xmark"></i> Curva de aprendizaje más alta</li>
+                </ul>
+            </div>
+
+            <div class="fw-card">
+                <div class="fw-icon"><i class="fa-solid fa-mobile"></i></div>
+                <div class="fw-nombre">Kivy</div>
+                <div class="fw-etiqueta">Móvil/Touch</div>
+                <div class="fw-desc"><b>Open Source MIT</b>. Ideal para apps modernas, móviles o touch. Soporte multiplataforma real, animaciones potentes y comunidad entusiasta.</div>
+                <ul class="fw-detail">
+                  <li class="fw-pros"><i class="fa-solid fa-check"></i> Apps Android/iOS en Python</li>
+                  <li class="fw-pros"><i class="fa-solid fa-check"></i> Libre y abierta</li>
+                  <li class="fw-contras"><i class="fa-solid fa-xmark"></i> No es nativa, look custom</li>
+                  <li class="fw-contras"><i class="fa-solid fa-xmark"></i> Curva media de aprendizaje</li>
+                </ul>
+            </div>
+
+            <div class="fw-card">
+                <div class="fw-icon"><i class="fa-solid fa-desktop"></i></div>
+                <div class="fw-nombre">wxPython</div>
+                <div class="fw-etiqueta sec">Look nativo</div>
+                <div class="fw-desc"><b>Veterano y estable</b>. Aspecto idéntico al sistema, licencia libre, documentación sólida. Perfecto para utilidades desktop estables.</div>
+                <ul class="fw-detail">
+                  <li class="fw-pros"><i class="fa-solid fa-check"></i> Integración OS total</li>
+                  <li class="fw-pros"><i class="fa-solid fa-check"></i> Sencillo de mantener</li>
+                  <li class="fw-contras"><i class="fa-solid fa-xmark"></i> Menos popular en 2025</li>
+                </ul>
+            </div>
+
+            <div class="fw-card">
+                <div class="fw-icon"><i class="fa-solid fa-gamepad"></i></div>
+                <div class="fw-nombre">Pygame</div>
+                <div class="fw-etiqueta">Juegos</div>
+                <div class="fw-desc"><b>Para juegos y multimedia</b>. No para GUI de negocio, pero imbatible en prototipos, formación y gamificación con Python.</div>
+                <ul class="fw-detail">
+                  <li class="fw-pros"><i class="fa-solid fa-check"></i> Rápido en 2D, comunidad enorme</li>
+                  <li class="fw-pros"><i class="fa-solid fa-check"></i> Aprendizaje fácil para juegos</li>
+                  <li class="fw-contras"><i class="fa-solid fa-xmark"></i> No recomendado para apps tradicionales</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="fw-section">
+        <div class="fw-title"><i class="fa-solid fa-code"></i> Ejemplo “Hola Mundo” en cada framework</div>
+        <div class="fw-cards" style="flex-wrap:wrap;">
+            <div class="fw-card" style="max-width:330px;">
+                <b style="color:#5d43e2;">Tkinter</b>
+                <div class="fw-detail" style="font-family:monospace;background:#f3f3fe;padding:8px 10px;border-radius:10px;">
+import tkinter as tk<br>
+root = tk.Tk()<br>
+tk.Label(root, text="Hola Mundo").pack()<br>
+root.mainloop()
+                </div>
+            </div>
+            <div class="fw-card" style="max-width:330px;">
+                <b style="color:#5d43e2;">PyQt5</b>
+                <div class="fw-detail" style="font-family:monospace;background:#f3f3fe;padding:8px 10px;border-radius:10px;">
+from PyQt5.QtWidgets import QApplication, QLabel<br>
+app = QApplication([])<br>
+label = QLabel('Hola Mundo')<br>
+label.show()<br>
+app.exec_()
+                </div>
+            </div>
+            <div class="fw-card" style="max-width:330px;">
+                <b style="color:#5d43e2;">Kivy</b>
+                <div class="fw-detail" style="font-family:monospace;background:#f3f3fe;padding:8px 10px;border-radius:10px;">
+from kivy.app import App<br>
+from kivy.uix.label import Label<br>
+class MyApp(App):<br>
+&nbsp;&nbsp;&nbsp;def build(self):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return Label(text="Hola Mundo")<br>
+MyApp().run()
+                </div>
+            </div>
+            <div class="fw-card" style="max-width:330px;">
+                <b style="color:#5d43e2;">wxPython</b>
+                <div class="fw-detail" style="font-family:monospace;background:#f3f3fe;padding:8px 10px;border-radius:10px;">
+import wx<br>
+app = wx.App()<br>
+frame = wx.Frame(None, title="Hola Mundo")<br>
+frame.Show()<br>
+app.MainLoop()
+                </div>
+            </div>
+            <div class="fw-card" style="max-width:330px;">
+                <b style="color:#5d43e2;">Pygame</b>
+                <div class="fw-detail" style="font-family:monospace;background:#f3f3fe;padding:8px 10px;border-radius:10px;">
+import pygame<br>
+pygame.init()<br>
+screen = pygame.display.set_mode((300, 100))<br>
+font = pygame.font.SysFont(None, 48)<br>
+img = font.render('Hola Mundo', True, (0,0,0))<br>
+screen.blit(img, (20, 25))<br>
+pygame.display.flip()<br>
+while pygame.event.wait().type != pygame.QUIT: pass
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="fw-section mi-opinion">
+        <b><i class="fa-solid fa-star"></i> Conclusión y recomendación profesional (2025)</b><br>
+        Para empresas que buscan una solución GUI <b>moderna, multiplataforma y robusta</b> en Python, la opción más versátil y escalable en 2025 es <b>PySide6</b> (“Qt for Python”).
+        <ul>
+            <li>Para apps móviles/modernas: <b>Kivy</b> es la opción ideal (Android/iOS nativo, interfaz libre).</li>
+            <li>Herramientas simples/educativas: <b>Tkinter</b>.</li>
+            <li>Juegos/entornos interactivos: <b>Pygame</b>.</li>
+        </ul>
+        La decisión final depende de tu caso de uso, recursos y equipo. ¡Contáctame para consultoría a medida!
+    </div>
+
+    <div class="cierre">
+        ¿Te ha servido esta comparativa? <br>
+        Descarga el <b>PDF original</b> para más detalles técnicos y fuentes oficiales.<br>
+        <a href="Comparativa%20de%20frameworks%20gr%C3%A1ficos%20de%20Python%20en%202025.pdf" class="btn-descargar" download>
+            <i class="fa-solid fa-file-arrow-down"></i> Descargar PDF original
+        </a>
+        <br><br>
+        <a href="index.html" class="enlace"><i class="fa-solid fa-arrow-left"></i> Volver al portfolio</a>
+    </div>
+
+    <footer style="text-align:center;padding:22px 0 12px 0;color:#888;letter-spacing:1px;">
+        &copy; 2025 Ismael López — Ismadev Solutions · Blog técnico premium
+    </footer>
+</body>
+</html>
