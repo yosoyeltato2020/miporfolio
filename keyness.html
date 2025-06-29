@@ -25,6 +25,29 @@
             border-bottom-left-radius: 48px;
             border-bottom-right-radius: 48px;
             box-shadow: 0 8px 30px #b5a9ff33;
+            position: relative;
+            overflow: hidden;
+        }
+        /* Canvas del cubo 3D */
+        .three-cube-bg {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 320px;
+            height: 320px;
+            transform: translate(-50%, -54%);
+            z-index: 0;
+            pointer-events: none;
+            filter: drop-shadow(0 2px 32px #a076f980);
+        }
+        .keyness-hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            gap: 30px;
+            position: relative;
+            z-index: 1;
         }
         .keyness-hero-left {
             flex: 1.1;
@@ -66,12 +89,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            z-index: 2;
         }
         .keyness-hero-imgbox img {
             width: 320px;
             max-width: 95vw;
             border-radius: 25px;
             box-shadow: 0 8px 32px #ccc3fa55;
+            background: #fff;
         }
         .features-section {
             max-width: 1100px;
@@ -228,6 +253,25 @@
             margin-bottom: 18px;
             box-shadow: 0 2px 12px #d7cdfa44;
         }
+        .btn-github {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #222;
+            color: #fff;
+            padding: 10px 22px;
+            border-radius: 7px;
+            font-weight: 500;
+            font-size: 1.1em;
+            text-decoration: none;
+            transition: background 0.2s;
+            box-shadow: 0 2px 7px #eee;
+            margin-top: 18px;
+        }
+        .btn-github:hover {
+            background: #444;
+            color: #a076f9;
+        }
         .footer {
             margin-top: 68px;
             text-align: center;
@@ -244,10 +288,12 @@
             .features-section { gap: 30px 8px;}
             .security-section { flex-direction: column;}
             .security-iconbox img { width: 140px;}
+            .three-cube-bg { width: 180px; height: 180px; }
         }
         @media (max-width: 600px) {
             .keyness-hero, .features-section, .steps-section, .forwho-section, .security-section, .demo-section { padding: 10px 2vw;}
             .step-item, .feature-card, .forwho-item { min-width: 90vw; max-width: 98vw;}
+            .three-cube-bg { width: 110px; height: 110px; }
         }
     </style>
     <!-- ICONS FONT AWESOME (Cargar CDN solo si hace falta) -->
@@ -255,7 +301,7 @@
 </head>
 <body>
     <header>
-        <div class="logo"><span class="dot">.</span></div>
+        <div class="logo">PORTFOLIO PERSONAL<span class="dot">.</span></div>
         <img src="img/logo.svg" alt="Logo Ismadev Solutions" style="height:54px;">
         <nav>
             <a href="index.html">INICIO</a>
@@ -264,22 +310,72 @@
         </nav>
     </header>
 
-    <!-- HERO PRINCIPAL -->
+    <!-- HERO PRINCIPAL CON CUBO 3D CENTRADO -->
     <section class="keyness-hero">
-        <div class="keyness-hero-left">
-            <h1 class="keyness-hero-title">Keynex<br>Acceso seguro y sin contraseñas</h1>
-            <div class="keyness-hero-subtitle">
-                Convierte tu móvil en la llave inteligente de tu empresa.<br>
-                <b>Controla accesos, protege tu información y olvida las contraseñas</b> con QR cifrado y doble factor. Simple, rápido y sin instalar apps.
+        <!-- Canvas Cubo 3D centrado en el HERO -->
+        <div class="three-cube-bg" id="cubo-3d-bg"></div>
+        <div class="keyness-hero-content">
+            <div class="keyness-hero-left">
+                <h1 class="keyness-hero-title">Keynex<br>Acceso seguro y sin contraseñas</h1>
+                <div class="keyness-hero-subtitle">
+                    Convierte tu móvil en la llave inteligente de tu empresa.<br>
+                    <b>Controla accesos, protege tu información y olvida las contraseñas</b> con QR cifrado y doble factor. Simple, rápido y sin instalar apps.
+                </div>
+                <a href="mailto:info@ismadevsolutions.com" class="cta-main">Solicita demo</a>
             </div>
-            <a href="mailto:info@ismadevsolutions.com" class="cta-main">Solicita demo</a>
-        </div>
-        <div class="keyness-hero-imgbox">
-            <img src="img/keyness_mockup.png" alt="Demo Keyness QR">
+            <div class="keyness-hero-imgbox">
+                <img src="img/keyness_mockup.png" alt="Demo Keyness QR">
+            </div>
         </div>
     </section>
 
-    <!-- FEATURES -->
+    <!-- THREE.JS CUBO 3D -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script>
+    // Montar el cubo en el div del hero centrado
+    const cuboDiv = document.getElementById('cubo-3d-bg');
+    // Crear y posicionar el canvas
+    const renderer = new THREE.WebGLRenderer({ alpha:true, antialias:true });
+    renderer.setClearColor(0x000000, 0); // Fondo transparente
+    renderer.setSize(cuboDiv.offsetWidth || 320, cuboDiv.offsetHeight || 320);
+    cuboDiv.appendChild(renderer.domElement);
+    renderer.domElement.style.width = "100%";
+    renderer.domElement.style.height = "100%";
+    renderer.domElement.style.position = "absolute";
+    renderer.domElement.style.inset = "0";
+    renderer.domElement.style.zIndex = "0";
+    // Escena, cámara, cubo
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(55, (cuboDiv.offsetWidth||320)/(cuboDiv.offsetHeight||320), 0.1, 1000);
+    camera.position.z = 3.2;
+    const geometry = new THREE.BoxGeometry(1.2, 1.2, 1.2);
+    const material = new THREE.MeshStandardMaterial({ color: 0x5d43e2, roughness:0.37, metalness:0.37 });
+    const cube = new THREE.Mesh(geometry, material);
+    scene.add(cube);
+    // Luz ambiental y puntual
+    scene.add(new THREE.AmbientLight(0xffffff, 0.7));
+    const light = new THREE.PointLight(0xffffff, 1.17);
+    light.position.set(3, 3, 3);
+    scene.add(light);
+    // Animación
+    function animate() {
+        requestAnimationFrame(animate);
+        cube.rotation.x += 0.014;
+        cube.rotation.y += 0.012;
+        renderer.render(scene, camera);
+    }
+    animate();
+    // Responsive: ajustar tamaño al redimensionar
+    window.addEventListener("resize", function() {
+        const width = cuboDiv.offsetWidth || 320;
+        const height = cuboDiv.offsetHeight || 320;
+        renderer.setSize(width, height);
+        camera.aspect = width/height;
+        camera.updateProjectionMatrix();
+    });
+    </script>
+
+    <!-- ¿Por qué Keynex? -->
     <h2 class="section-title">¿Por qué Keynex?</h2>
     <section class="features-section">
         <div class="feature-card">
@@ -309,7 +405,7 @@
         </div>
     </section>
 
-    <!-- CÓMO FUNCIONA -->
+    <!-- ¿Cómo funciona? -->
     <h2 class="section-title">¿Cómo funciona?</h2>
     <section class="steps-section">
         <div class="steps-list">
@@ -369,11 +465,64 @@
         <br>
         <a href="mailto:info@ismadevsolutions.com" class="cta-main" style="margin-top: 20px;">Solicita tu demo personalizada</a>
         <br>
-        <a href="https://github.com/tuusuario/keyness" target="_blank" class="btn btn-outline" style="margin-top:18px;display:inline-block;">Ver código en GitHub</a>
+        <a href="https://github.com/tuusuario/keyness" target="_blank" class="btn-github" style="margin-top:18px;">
+          <i class="fab fa-github"></i> Ver código en GitHub
+        </a>
     </section>
 
     <footer class="footer">
         &copy; 2024 Ismael López — Ismadev Solutions · Made with 💜
     </footer>
+
+    <!-- BURBUJAS FONDO FIJAS EN TODA LA PÁGINA -->
+    <canvas id="burbujas-bg" style="position:fixed; left:0;top:0; width:100vw;height:100vh;pointer-events:none;z-index:-1;"></canvas>
+    <script>
+    const canvas = document.getElementById('burbujas-bg');
+    const ctx = canvas.getContext('2d');
+    let burbujas = [];
+    const colores = ["#a076f9","#5d43e2","#b79df5","#d0c5ff"];
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    for(let i=0; i<18; i++){
+        burbujas.push({
+            x: Math.random()*window.innerWidth,
+            y: Math.random()*window.innerHeight,
+            r: 22 + Math.random()*36,
+            color: colores[Math.floor(Math.random()*colores.length)],
+            vy: 0.38 + Math.random()*0.49,
+            vx: (Math.random()-0.5)*0.5,
+            alpha: 0.13 + Math.random()*0.15
+        });
+    }
+    function dibujaBurbujas(){
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        for(let b of burbujas){
+            ctx.save();
+            ctx.globalAlpha = b.alpha;
+            ctx.beginPath();
+            ctx.arc(b.x,b.y,b.r,0,Math.PI*2);
+            ctx.fillStyle = b.color;
+            ctx.shadowColor = b.color;
+            ctx.shadowBlur = 14;
+            ctx.fill();
+            ctx.restore();
+            b.y -= b.vy;
+            b.x += b.vx;
+            if(b.y < -b.r) {
+                b.y = canvas.height + b.r;
+                b.x = Math.random()*canvas.width;
+            }
+            if(b.x < -b.r) b.x = canvas.width + b.r;
+            if(b.x > canvas.width + b.r) b.x = -b.r;
+        }
+        requestAnimationFrame(dibujaBurbujas);
+    }
+    dibujaBurbujas();
+    </script>
 </body>
 </html>

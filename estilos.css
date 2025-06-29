@@ -333,3 +333,22 @@ footer {
     max-height: 150px;
     object-fit: contain;
 }
+.cubo-3d-index {
+  position: absolute;
+  left: 58%;         /* 58% = un poco a la derecha, prueba 50-60% */
+  top: 145px;        /* baja si lo quieres más abajo */
+  width: 320px;      /* cubo grande */
+  height: 320px;
+  z-index: 3;
+  opacity: 0.31;
+  pointer-events: none;
+  transform: translateX(-48%); /* centrado relativo a su propio ancho */
+}
+@media (max-width: 800px) {
+  .cubo-3d-index {
+    left: 50%;
+    width: 180px;
+    height: 180px;
+    top: 92px;
+  }
+}

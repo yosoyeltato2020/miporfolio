@@ -7,6 +7,33 @@
     <link rel="stylesheet" href="estilos.css">
     <!-- Font Awesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+      /* Cubo 3D flotante sobre el hero */
+      .cubo-3d-index {
+        position: absolute;
+        right: 19vw;
+        top: 80px;
+        width: 260px;
+        height: 260px;
+        pointer-events: none;
+        z-index: 4;
+        opacity: 0.87;
+        max-width: 34vw;
+        max-height: 34vw;
+        min-width: 120px;
+        min-height: 120px;
+      }
+      @media (max-width: 800px) {
+        .cubo-3d-index {
+          right: 4vw;
+          top: 68px;
+          width: 100px;
+          height: 100px;
+          min-width: 72px;
+          min-height: 72px;
+        }
+      }
+    </style>
 </head>
 <body>
     <header>
@@ -28,7 +55,10 @@
         </nav>
     </header>
 
-    <section class="hero" id="home">
+    <!-- Cubo 3D flotando arriba a la derecha -->
+    <div class="cubo-3d-index" id="cubo-3d-index"></div>
+
+    <section class="hero" id="home" style="position:relative;z-index:2;">
         <div class="hero-left">
             <h2>HOLA</h2>
             <h1>SOY <span>ISMAEL LOPEZ MORALES</span></h1>
@@ -97,7 +127,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN DE CONTACTO ELEGANTE Y FUNCIONAL -->
+    <!-- SECCIÓN DE CONTACTO -->
     <section id="contacto" class="contacto-section" style="
         max-width: 480px; 
         margin: 90px auto 90px auto; 
@@ -147,7 +177,6 @@
         </button>
         <p style="font-size:0.95em; color:#888; text-align:center; margin-top:0px;">Tus datos solo se usarán para responderte.<br>No se guardan en ninguna base de datos.</p>
       </form>
-      <!-- Mensaje de éxito oculto por defecto -->
       <div id="gracias-contacto" style="display:none; text-align:center; padding:34px 8px 16px 8px;">
         <i class="fa-solid fa-circle-check" style="font-size:3em; color:#35b96c; margin-bottom:12px; animation:bounce 1s;"></i>
         <h3 style="color:#5d43e2; margin:12px 0 8px 0; font-size:1.44em;">¡Gracias por tu mensaje!</h3>
@@ -199,5 +228,103 @@
             © 2025 ISMAEL LOPEZ — Portfolio personal.
         </div>
     </footer>
+
+    <!-- ===== BURBUJAS ANIMADAS FONDO ===== -->
+    <canvas id="burbujas-bg" style="position:fixed; left:0;top:0; width:100vw;height:100vh;pointer-events:none;z-index:0;"></canvas>
+    <script>
+    // BURBUJAS
+    const canvas = document.getElementById('burbujas-bg');
+    const ctx = canvas.getContext('2d');
+    let burbujas = [];
+    const colores = ["#a076f9","#fcb654","#5d43e2","#f26232","#89f6ca"];
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    for(let i=0; i<18; i++){
+      burbujas.push({
+        x: Math.random()*window.innerWidth,
+        y: Math.random()*window.innerHeight,
+        r: 18 + Math.random()*35,
+        color: colores[Math.floor(Math.random()*colores.length)],
+        vy: 0.34 + Math.random()*0.37,
+        vx: (Math.random()-0.5)*0.3,
+        alpha: 0.12 + Math.random()*0.15
+      });
+    }
+    function dibujaBurbujas(){
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      for(let b of burbujas){
+        ctx.save();
+        ctx.globalAlpha = b.alpha;
+        ctx.beginPath();
+        ctx.arc(b.x,b.y,b.r,0,Math.PI*2);
+        ctx.fillStyle = b.color;
+        ctx.shadowColor = b.color;
+        ctx.shadowBlur = 12;
+        ctx.fill();
+        ctx.restore();
+        // Animación
+        b.y -= b.vy;
+        b.x += b.vx;
+        if(b.y < -b.r) {
+          b.y = canvas.height + b.r;
+          b.x = Math.random()*canvas.width;
+        }
+        if(b.x < -b.r) b.x = canvas.width + b.r;
+        if(b.x > canvas.width + b.r) b.x = -b.r;
+      }
+      requestAnimationFrame(dibujaBurbujas);
+    }
+    dibujaBurbujas();
+    </script>
+
+    <!-- ===== CUBO 3D CON THREE.JS ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script>
+    // Muestra el cubo solo en desktop/tablet
+    const cuboDiv = document.getElementById('cubo-3d-index');
+    if(cuboDiv){
+      // Crear y posicionar el canvas
+      const renderer = new THREE.WebGLRenderer({ alpha:true, antialias:true });
+      renderer.setClearColor(0x000000, 0); // Fondo transparente
+      renderer.setSize(cuboDiv.offsetWidth || 210, cuboDiv.offsetHeight || 210);
+      cuboDiv.appendChild(renderer.domElement);
+      renderer.domElement.style.position = "absolute";
+      renderer.domElement.style.inset = "0";
+      renderer.domElement.style.width = "100%";
+      renderer.domElement.style.height = "100%";
+      renderer.domElement.style.zIndex = "0";
+      // Escena, cámara, cubo
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(50, (cuboDiv.offsetWidth||210)/(cuboDiv.offsetHeight||210), 0.1, 1000);
+      camera.position.z = 4;
+      const geometry = new THREE.BoxGeometry();
+      const material = new THREE.MeshStandardMaterial({ color: 0x5d43e2, roughness:0.38, metalness:0.45 });
+      const cube = new THREE.Mesh(geometry, material);
+      scene.add(cube);
+      scene.add(new THREE.AmbientLight(0xffffff, 0.85));
+      const light = new THREE.PointLight(0xffffff, 1.14);
+      light.position.set(3, 3, 3);
+      scene.add(light);
+      function animate() {
+        requestAnimationFrame(animate);
+        cube.rotation.x += 0.013;
+        cube.rotation.y += 0.018;
+        renderer.render(scene, camera);
+      }
+      animate();
+      // Responsive
+      window.addEventListener("resize", function() {
+        const width = cuboDiv.offsetWidth || 210;
+        const height = cuboDiv.offsetHeight || 210;
+        renderer.setSize(width, height);
+        camera.aspect = width/height;
+        camera.updateProjectionMatrix();
+      });
+    }
+    </script>
 </body>
 </html>
