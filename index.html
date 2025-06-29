@@ -4,40 +4,338 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BIENVENIDO A MI RINCON PERSONAL</title>
-    <link rel="stylesheet" href="estilos.css">
-    <!-- Font Awesome para iconos -->
+    <!-- Font Awesome para iconos generales -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <!-- Devicon para iconos de tecnologías -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css">
     <style>
-      /* Cubo 3D flotante sobre el hero */
+      body {
+          background: #f9f9fb;
+          font-family: 'Segoe UI', Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          color: #222;
+      }
+      header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 24px 60px 10px 60px;
+          background: #fff;
+          box-shadow: 0 2px 8px #eee;
+          position: sticky;
+          top: 0;
+          z-index: 100;
+      }
+      .logo {
+          font-weight: 700;
+          font-size: 1.6em;
+          letter-spacing: 2px;
+      }
+      nav a {
+          margin-left: 22px;
+          color: #222;
+          text-decoration: none;
+          font-weight: 500;
+          font-size: 1.05em;
+          transition: color 0.2s;
+          padding-bottom: 4px;
+      }
+      nav a.active, nav a:hover {
+          color: #a076f9;
+          border-bottom: 2px solid #a076f9;
+      }
       .cubo-3d-index {
-        position: absolute;
-        right: 19vw;
-        top: 80px;
-        width: 260px;
-        height: 260px;
-        pointer-events: none;
-        z-index: 4;
-        opacity: 0.87;
-        max-width: 34vw;
-        max-height: 34vw;
-        min-width: 120px;
-        min-height: 120px;
+          position: absolute;
+          right: 19vw;
+          top: 80px;
+          width: 260px;
+          height: 260px;
+          pointer-events: none;
+          z-index: 4;
+          opacity: 0.87;
+          max-width: 34vw;
+          max-height: 34vw;
+          min-width: 120px;
+          min-height: 120px;
       }
       @media (max-width: 800px) {
-        .cubo-3d-index {
-          right: 4vw;
-          top: 68px;
-          width: 100px;
-          height: 100px;
-          min-width: 72px;
-          min-height: 72px;
-        }
+          .cubo-3d-index {
+              right: 4vw;
+              top: 68px;
+              width: 100px;
+              height: 100px;
+              min-width: 72px;
+              min-height: 72px;
+          }
+      }
+      .hero {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 60px 60px 50px 60px;
+          background: #fff;
+      }
+      .hero-left h2 {
+          color: #ffc107;
+          font-weight: 400;
+          margin: 0 0 8px 0;
+          font-size: 1.5em;
+      }
+      .hero-left h1 {
+          font-size: 3.2em;
+          margin: 0 0 12px 0;
+          letter-spacing: 2px;
+      }
+      .hero-left h1 span {
+          color: #222;
+          font-weight: bold;
+      }
+      .hero-left h3 {
+          color: #444;
+          font-size: 1.3em;
+          margin: 0 0 24px 0;
+          font-weight: 400;
+      }
+      .hero-btns {
+          display: flex;
+          gap: 18px;
+      }
+      .btn {
+          padding: 12px 26px;
+          border-radius: 7px;
+          font-size: 1.07em;
+          font-weight: 500;
+          border: none;
+          cursor: pointer;
+          text-decoration: none;
+          display: inline-block;
+          transition: background 0.22s, color 0.2s, border 0.2s;
+      }
+      .btn-primary {
+          background: linear-gradient(90deg, #a076f9 0%, #5d43e2 100%);
+          color: #fff;
+          border: none;
+          box-shadow: 0 1px 6px #a076f94a;
+      }
+      .btn-primary:hover {
+          background: linear-gradient(90deg, #5d43e2 0%, #a076f9 100%);
+          color: #fff;
+      }
+      .btn-outline {
+          border: 2px solid #a076f9;
+          background: #fff;
+          color: #a076f9;
+      }
+      .btn-outline:hover {
+          background: #a076f9;
+          color: #fff;
+      }
+      .hero-right img {
+          width: 560px;
+          max-width: 70vw;
+          border-radius: 24px;
+      }
+      .about {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 24px;
+          background: #b8b8bb;
+          border-radius: 36px;
+          margin: 54px 60px 64px 60px;
+          padding: 64px 60px 64px 60px;
+          box-shadow: 0 4px 32px #d3d3d345;
+          min-height: 580px;
+      }
+      .about-img img {
+          width: 300px;
+          border-radius: 28px;
+          background: #f4f3fe;
+          padding: 24px;
+      }
+      .about-foto-box {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 0 30px;
+      }
+      .about-foto {
+          width: 400px;
+          height: 300px;
+          object-fit: cover;
+          border-radius: 10%;
+          box-shadow: 0 4px 16px #ccc;
+          border: 5px solid #fff;
+      }
+      .about-info {
+          flex: 1;
+          min-width: 220px;
+      }
+      .about-info h2 {
+          font-size: 2.1em;
+          line-height: 1.1em;
+          margin-bottom: 16px;
+          letter-spacing: 4px;
+      }
+      .about-info p {
+          margin-bottom: 18px;
+          color: #333;
+          font-size: 1.1em;
+          line-height: 1.6;
+      }
+      /* BARRA DE HABILIDADES (ICONOS) */
+      .skills-bar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 32px 18px;
+        margin: 32px 0 6px 0;
+        justify-content: flex-start;
+        align-items: flex-end;
+      }
+      .skill-icon-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-width: 60px;
+        transition: transform 0.18s;
+      }
+      .skill-icon-box:hover {
+        transform: translateY(-8px) scale(1.13);
+        filter: drop-shadow(0 6px 22px #a076f969);
+      }
+      .skill-icon-box i {
+        font-size: 2.7em;
+        margin-bottom: 4px;
+        transition: color 0.22s;
+      }
+      .skill-icon-box span {
+        font-size: 0.97em;
+        color: #373757;
+        margin-top: 2px;
+        letter-spacing: 0.3px;
+      }
+      .devicon-python-plain.colored { color: #3572A5; }
+      .devicon-html5-plain.colored { color: #e44d26; }
+      .devicon-css3-plain.colored { color: #1572b6; }
+      .devicon-javascript-plain.colored { color: #efd81d; }
+      .devicon-flask-original.colored { color: #4d4d4d; }
+      .devicon-kivy-plain.colored { color: #72ef36; }
+      .devicon-mysql-plain.colored { color: #00758F; }
+      .devicon-git-plain.colored { color: #F05032; }
+      .devicon-linux-plain.colored { color: #111; }
+
+      .portfolio {
+          background: #fff;
+          padding: 60px 60px 50px 60px;
+      }
+      .portfolio h2 {
+          font-size: 2em;
+          margin-bottom: 18px;
+          font-weight: 700;
+          letter-spacing: 1.3px;
+      }
+      .portfolio-items {
+          display: flex;
+          gap: 28px;
+          flex-wrap: wrap;
+      }
+      .portfolio-card {
+          background: #f4f3fe;
+          border-radius: 16px;
+          padding: 24px;
+          width: 210px;
+          box-shadow: 0 2px 7px #eee;
+          text-align: center;
+          transition: transform 0.18s;
+          position: relative;
+      }
+      .portfolio-card:hover {
+          transform: translateY(-6px) scale(1.04);
+          box-shadow: 0 8px 24px #a076f950;
+      }
+      .portfolio-card img {
+          width: 160px;
+          border-radius: 10px;
+          margin-bottom: 16px;
+      }
+      .portfolio-card h3 {
+          font-size: 1.1em;
+          margin: 0;
+          color: #3a266a;
+      }
+      .btn-proyecto {
+          margin-top: 14px;
+          background: linear-gradient(90deg, #a076f9 0%, #5d43e2 100%);
+          color: #fff;
+          border: none;
+          border-radius: 7px;
+          padding: 10px 22px;
+          font-size: 1em;
+          font-weight: 500;
+          text-decoration: none;
+          box-shadow: 0 2px 8px #cfcfff5c;
+          transition: background 0.19s, transform 0.16s;
+          display: inline-block;
+      }
+      .btn-proyecto:hover {
+          background: linear-gradient(90deg, #5d43e2 0%, #a076f9 100%);
+          color: #fff;
+          transform: scale(1.08);
+      }
+      footer {
+          margin-top: 36px;
+          text-align: center;
+          padding: 18px 0;
+          background: #fff;
+          font-size: 1em;
+          color: #888;
+          letter-spacing: 1px;
+      }
+      @media (max-width: 1100px) {
+          .about-img img,
+          .about-foto {
+              width: 120px !important;
+              height: 120px !important;
+              padding: 12px !important;
+          }
+          .hero-right img {
+              width: 250px !important;
+          }
+      }
+      @media (max-width: 900px) {
+          .hero, .about, .portfolio {
+              flex-direction: column;
+              padding: 30px 10vw;
+              align-items: center;
+          }
+          .hero-right img, .about-img img, .about-foto {
+              width: 200px !important;
+              height: 200px !important;
+          }
+          .portfolio-items {
+              justify-content: center;
+          }
+      }
+      @media (max-width: 600px) {
+          header, .hero, .about, .portfolio {
+              padding-left: 3vw;
+              padding-right: 3vw;
+          }
+          .hero-right img, .about-img img, .about-foto {
+              width: 120px !important;
+              height: 120px !important;
+          }
+          .portfolio-card {
+              width: 98vw;
+              max-width: 350px;
+          }
+          .skills-bar { gap: 12px; flex-wrap: wrap;}
       }
     </style>
 </head>
 <body>
     <header>
-        <!-- LOGO SVG directamente aquí -->
         <div class="logo" style="display: flex; align-items: center;">
             <svg width="170" height="40" viewBox="0 0 340 70" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right:12px;">
               <rect x="10" y="10" width="50" height="50" rx="15" fill="#a076f9"/>
@@ -55,7 +353,6 @@
         </nav>
     </header>
 
-    <!-- Cubo 3D flotando arriba a la derecha -->
     <div class="cubo-3d-index" id="cubo-3d-index"></div>
 
     <section class="hero" id="home" style="position:relative;z-index:2;">
@@ -74,31 +371,40 @@
     </section>
 
     <section class="about" id="about">
-        
         <div class="about-img">
             <img src="img/about-us.png" alt="Ilustración muñeco">
         </div>
         <div class="about-info">
           <h2>ME PRESENTO</h2>
-  <p>
-    Soy desarrollador de aplicaciones junior con formación en Python y conocimientos en otros lenguajes de programación. Me apasiona la tecnología y disfruto resolviendo problemas a través del código.
-  </p>
-  <p>
-    Además, tengo habilidades en desarrollo web (HTML, CSS y JavaScript), así como en bases de datos SQL, lo que me permite crear soluciones completas y funcionales tanto en frontend como en backend.
-  </p>
-  
-  <p>
-    Me considero una persona responsable, curiosa y con muchas ganas de aprender y mejorar cada día. Me adapto rápidamente a nuevas herramientas y entornos de trabajo, y valoro mucho el trabajo en equipo y el aprendizaje colaborativo.
-  </p>
-  <p>
-    He participado en proyectos y concursos para seguir formándome y descubrir nuevas ideas. Siempre busco nuevos retos que me permitan crecer tanto a nivel técnico como personal.
-  </p>
-  <p>
-    Si buscas un programador motivado, con capacidad de adaptación y muchas ganas de aportar, estaré encantado de formar parte de tu equipo.  
-    <strong>¡Contáctame para construir juntos soluciones innovadoras!</strong>
-  </p>
-</div>
-
+          <p>
+            Soy desarrollador de aplicaciones junior con formación en Python y conocimientos en otros lenguajes de programación. Me apasiona la tecnología y disfruto resolviendo problemas a través del código.
+          </p>
+          <p>
+            Además, tengo habilidades en desarrollo web (HTML, CSS y JavaScript), así como en bases de datos SQL, lo que me permite crear soluciones completas y funcionales tanto en frontend como en backend.
+          </p>
+          <p>
+            Me considero una persona responsable, curiosa y con muchas ganas de aprender y mejorar cada día. Me adapto rápidamente a nuevas herramientas y entornos de trabajo, y valoro mucho el trabajo en equipo y el aprendizaje colaborativo.
+          </p>
+          <p>
+            He participado en proyectos y concursos para seguir formándome y descubrir nuevas ideas. Siempre busco nuevos retos que me permitan crecer tanto a nivel técnico como personal.
+          </p>
+          <p>
+            Si buscas un programador motivado, con capacidad de adaptación y muchas ganas de aportar, estaré encantado de formar parte de tu equipo.  
+            <strong>¡Contáctame para construir juntos soluciones innovadoras!</strong>
+          </p>
+          <!-- Barra de habilidades visual aquí -->
+          <div class="skills-bar">
+            <div class="skill-icon-box"><i class="devicon-python-plain colored"></i><span>Python</span></div>
+            <div class="skill-icon-box"><i class="devicon-html5-plain colored"></i><span>HTML5</span></div>
+            <div class="skill-icon-box"><i class="devicon-css3-plain colored"></i><span>CSS3</span></div>
+            <div class="skill-icon-box"><i class="devicon-javascript-plain colored"></i><span>JavaScript</span></div>
+            <div class="skill-icon-box"><i class="devicon-flask-original colored"></i><span>Flask</span></div>
+            <div class="skill-icon-box"><i class="devicon-kivy-plain colored"></i><span>Kivy</span></div>
+            <div class="skill-icon-box"><i class="devicon-mysql-plain colored"></i><span>MySQL</span></div>
+            <div class="skill-icon-box"><i class="devicon-git-plain colored"></i><span>Git</span></div>
+            <div class="skill-icon-box"><i class="devicon-linux-plain colored"></i><span>Linux</span></div>
+          </div>
+        </div>
         <div class="about-foto-box">
             <img src="img/ismael.jpeg" alt="Mi foto personal" class="about-foto">
         </div>
@@ -202,33 +508,6 @@
         }
       </style>
     </section>
-
-    <script>
-    // Mostrar mensaje de gracias al enviar
-    document.addEventListener("DOMContentLoaded", function() {
-      var form = document.getElementById('form-contacto');
-      var gracias = document.getElementById('gracias-contacto');
-      if(form){
-        form.addEventListener('submit', function(e) {
-          e.preventDefault();
-          fetch(form.action, {
-            method: "POST",
-            body: new FormData(form),
-            headers: { 'Accept': 'application/json' }
-          }).then(function(response) {
-            if (response.ok) {
-              form.style.display = "none";
-              gracias.style.display = "block";
-            } else {
-              alert("Hubo un error enviando tu mensaje. Por favor, inténtalo de nuevo.");
-            }
-          }).catch(function(error) {
-            alert("Hubo un error enviando tu mensaje. Por favor, inténtalo de nuevo.");
-          });
-        });
-      }
-    });
-    </script>
 
     <footer>
         <div class="footer-text">
