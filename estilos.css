@@ -352,3 +352,82 @@ footer {
     top: 92px;
   }
 }
+
+/* === Mejoras Responsive para móvil === */
+@media (max-width: 800px) {
+  .about-img img, .about-foto {
+    width: 90px !important;
+    height: 90px !important;
+    padding: 7px !important;
+  }
+  .hero-right img {
+    width: 130px !important;
+    height: 130px !important;
+  }
+  .about {
+    flex-direction: column;
+    padding: 22px 6vw;
+    margin: 24px 0;
+    min-height: unset;
+  }
+  .cubo-3d-index {
+    display: none !important;
+  }
+}
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px 3vw 8px 3vw !important;
+  }
+  nav {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-top: 7px;
+  }
+  nav a {
+    font-size: 1em;
+    margin-left: 0;
+    margin-right: 12px;
+  }
+  .hero, .about, .portfolio {
+    padding: 10px 2vw !important;
+  }
+  .about-img img, .about-foto {
+    width: 75px !important;
+    height: 75px !important;
+    padding: 4px !important;
+  }
+  .hero-right img {
+    width: 95px !important;
+    height: 95px !important;
+  }
+  .about {
+    flex-direction: column;
+    padding: 14px 2vw !important;
+    margin: 15px 0 !important;
+    border-radius: 18px;
+    min-height: unset;
+  }
+  .portfolio-card {
+    width: 96vw !important;
+    max-width: 98vw !important;
+    padding: 10px !important;
+  }
+}
+
+/* Ajuste global imágenes para que no desborden */
+img, .about-foto, .about-img img, .hero-right img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+.about-foto {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  object-fit: cover;
+}
