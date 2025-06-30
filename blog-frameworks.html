@@ -5,7 +5,10 @@
     <title>Frameworks Gráficos Python 2025 — Blog Premium | Ismadev Solutions</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Comparativa definitiva de frameworks gráficos Python 2025 para empresas. Elige el mejor: PySide6, PyQt, Tkinter, wxPython, Kivy, Pygame.">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <!-- Devicon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body {background: #f9f9fb; font-family: 'Montserrat', Arial, sans-serif; color: #222; margin:0;}
@@ -18,10 +21,48 @@
         nav a {margin: 0 17px; color:#5d43e2; text-decoration:none; font-weight:600; font-size:1.1em;}
         nav a:hover, nav a.active {color:#f26232;}
         .blog-title {font-family:'Fredoka',Arial,sans-serif;font-size:2.2em;color:#fff;margin-bottom:5px; text-shadow: 0 4px 28px #a076f9a6;}
+        .framework-icons {
+            margin:18px auto 12px auto;
+            display: flex; justify-content: center;
+            gap: 22px; flex-wrap: wrap;
+        }
+        .framework-icons span {
+            font-size:2.3em;
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            border-radius: 13px;
+            background: rgba(245,245,255,0.05);
+            box-shadow: 0 2px 12px #a076f916;
+            padding: 5px 10px;
+            transition: transform 0.18s, box-shadow 0.16s;
+            cursor: pointer;
+        }
+        .framework-icons span:hover {
+            transform: scale(1.15) rotate(-6deg);
+            box-shadow: 0 4px 20px #a076f95c;
+            background: #faf3ff;
+        }
+        /* Colores específicos para cada framework */
+        .framework-icons .tkinter   { color:#3e51b5;}
+        .framework-icons .pyqt      { color:#39b98b;}
+        .framework-icons .pyside    { color:#5d8faf;}
+        .framework-icons .kivy      { color:#72ef36;}
+        .framework-icons .wxpython  { color:#fcb654;}
+        .framework-icons .pygame    { color:#e34a27;}
+        @media (max-width:900px){
+          .framework-icons { gap: 10px; }
+          .framework-icons span { font-size:1.4em; padding:4px 6px;}
+        }
+        @media (max-width: 750px) {
+          header {padding:22px 0 8px 0;}
+        }
+        @media (max-width: 600px) {
+          .framework-icons { gap:7px; }
+          .framework-icons span { font-size:1.14em; padding:2px 4px;}
+        }
         .blog-sub {font-size:1.13em;color:#32187a;margin-bottom:16px;}
         .fecha {color:#fff;font-size:0.99em;margin-bottom:14px;}
-        .hero-art {margin: 22px auto 0 auto; display: flex; align-items: center; justify-content: center; gap: 24px;}
-        .hero-art img {width: 78px; border-radius: 14px; box-shadow: 0 4px 18px #a076f92b;}
         .btn-descargar {
             display:inline-block;background:linear-gradient(90deg,#a076f9 70%,#f26232 100%);
             color:#fff;padding:12px 28px;margin:36px 0 32px 0;
@@ -89,7 +130,7 @@
         .avatar img {width:100%;height:100%;object-fit:cover;}
         .autor {text-align:center;font-family:'Fredoka',Arial,sans-serif;color:#5d43e2;font-weight:600;font-size:1.07em;letter-spacing:0.5px;margin-top:8px;}
         @media (max-width: 1100px) { .fw-cards {flex-direction:column;align-items:center;} .fw-card{max-width:98vw;} .tabla-comp{font-size:1em;} }
-        @media (max-width: 750px) { header {padding:22px 0 8px 0;} .hero-art{flex-direction:column;gap:6px;} }
+        @media (max-width: 750px) { header {padding:22px 0 8px 0;} }
     </style>
 </head>
 <body>
@@ -103,6 +144,33 @@
             <a href="index.html#contacto">CONTACTO</a>
         </nav>
         <div class="blog-title"><i class="fa-solid fa-laptop-code"></i> Frameworks Gráficos de Python en 2025</div>
+        <!-- ICONOS DE FRAMEWORKS -->
+        <div class="framework-icons">
+          <!-- Tkinter: FontAwesome -->
+          <span class="tkinter" title="Tkinter">
+            <i class="fa-solid fa-window-maximize"></i>
+          </span>
+          <!-- PyQt: Devicon -->
+          <span class="pyqt" title="PyQt">
+            <i class="devicon-qt-plain colored"></i>
+          </span>
+          <!-- PySide: FontAwesome -->
+          <span class="pyside" title="PySide">
+            <i class="fa-solid fa-layer-group"></i>
+          </span>
+          <!-- Kivy: Devicon -->
+          <span class="kivy" title="Kivy">
+            <i class="devicon-kivy-plain colored"></i>
+          </span>
+          <!-- wxPython: FontAwesome -->
+          <span class="wxpython" title="wxPython">
+            <i class="fa-solid fa-desktop"></i>
+          </span>
+          <!-- Pygame: FontAwesome -->
+          <span class="pygame" title="Pygame">
+            <i class="fa-solid fa-gamepad"></i>
+          </span>
+        </div>
         <div class="blog-sub">La comparativa definitiva para empresas: rendimiento, facilidad y futuro</div>
         <div class="fecha"><i class="fa-regular fa-calendar"></i> 29 de junio de 2025</div>
         <div class="avatar">
@@ -110,13 +178,6 @@
         </div>
         <div class="autor">
             Por Ismael López Morales &bull; Desarrollador de aplicaciones Python
-        </div>
-        <div class="hero-art">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/TkInterPython.png" alt="Tkinter logo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/PyQt_logo.png" alt="PyQt logo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Kivy_logo.png" alt="Kivy logo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/3/34/WxPython-logo.png" alt="wxPython logo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/7/76/Pygame_logo.svg" alt="Pygame logo">
         </div>
         <a href="Comparativa%20de%20frameworks%20gr%C3%A1ficos%20de%20Python%20en%202025.pdf" class="btn-descargar" download>
             <i class="fa-solid fa-file-arrow-down"></i> Descargar PDF original de la comparativa
