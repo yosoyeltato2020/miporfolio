@@ -2,200 +2,208 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>AcademyGo - Gestión Integral de Academias | Ismadev Solutions</title>
+    <title>AcademyGo - Gestión de Academias Profesionales | Ismadev Solutions</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="AcademyGo: software profesional para gestión de academias, alumnos, matrículas y comunicaciones. Fácil, seguro y personalizable.">
-    <!-- ICONS FONT AWESOME -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <meta name="description" content="AcademyGo: La solución SaaS definitiva para gestionar academias, alumnos, matrículas, profesores y mucho más. Demo gratis.">
+    <link rel="icon" href="img/academygo_logo.svg">
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <!-- ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         :root {
-            --azul-principal: #2960a8;
-            --azul-secundario: #1b3660;
-            --azul-gradiente: linear-gradient(100deg, #2960a8 0%, #43a1e5 100%);
-            --fondo: #f9fbfd;
-            --sombra: 0 4px 22px #9bbbe940;
-            --borde-tarjeta: #ddeafc;
-            --hover-tarjeta: #f1f6fa;
-            --glass: rgba(255,255,255,0.5);
+            --azul-principal: #21509c;
+            --azul-secundario: #14447a;
+            --azul-acento: #46a6ff;
+            --azul-gradiente: linear-gradient(90deg, #21509c 0%, #46a6ff 100%);
+            --glass: rgba(255,255,255,0.72);
+            --glass-hover: rgba(255,255,255,0.98);
+            --fondo: #f7faff;
+            --borde-tarjeta: #e2e9f4;
+            --sombra: 0 4px 22px #9bbbe94a;
         }
-        body {
+        html, body {
             background: var(--fondo);
-            font-family: 'Segoe UI', Arial, sans-serif;
-            color: #212d3b;
-            margin: 0;
-            padding: 0;
+            font-family: 'Inter', Arial, sans-serif;
+            color: #182940;
+            margin: 0; padding: 0;
+            scroll-behavior: smooth;
         }
+        /* HEADER */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 26px 56px 10px 56px;
+            padding: 22px 6vw 14px 6vw;
             background: #fff;
-            box-shadow: 0 2px 8px #e5eef6;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            box-shadow: 0 2px 12px #d4e2f555;
+            position: sticky; top: 0; z-index: 100;
         }
-        .logo-box {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
+        .logo-box { display: flex; align-items: center; gap: 15px; }
         .logo-academygo {
-            height: 52px;
-            width: auto;
+            height: 48px; width: auto;
             border-radius: 11px;
-            background: #f9fbfd;
-            box-shadow: 0 1px 6px #a3bdeb28;
+            background: #fff;
+            box-shadow: 0 1px 6px #b5d3ff21;
         }
         .titulo-portfolio {
+            font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
             font-weight: 700;
-            font-size: 1.34em;
-            letter-spacing: 2px;
+            font-size: 1.32em;
+            letter-spacing: 1.8px;
             color: var(--azul-principal);
         }
         nav a {
             margin-left: 22px;
-            color: #212d3b;
+            color: #182940;
             text-decoration: none;
             font-weight: 500;
-            font-size: 1.06em;
-            transition: color 0.18s;
-            padding-bottom: 3.5px;
+            font-size: 1.08em;
+            transition: color 0.2s;
+            padding-bottom: 4px;
+            border-bottom: 2px solid transparent;
         }
         nav a.active, nav a:hover {
-            color: var(--azul-principal);
-            border-bottom: 2px solid var(--azul-principal);
+            color: var(--azul-acento);
+            border-bottom: 2px solid var(--azul-acento);
         }
         /* HERO */
         .hero {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 70px 60px 60px 60px;
+            padding: 85px 7vw 70px 7vw;
             background: #fff;
-            position: relative;
             min-height: 500px;
             border-bottom-left-radius: 40px;
             border-bottom-right-radius: 40px;
-            box-shadow: 0 8px 40px #a6c8f880;
+            box-shadow: 0 8px 40px #b5d3ff33;
+            position: relative;
             overflow: hidden;
         }
-        .hero-left {
-            flex: 1.1;
-            z-index: 2;
+        .hero-left { flex: 1.05; z-index:2; }
+        .badge-nuevo {
+            display: inline-block;
+            background: var(--azul-gradiente);
+            color: #fff;
+            font-size: 1em;
+            font-weight: 700;
+            padding: 7px 20px;
+            border-radius: 99px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 10px #46a6ff21;
+            letter-spacing: 1px;
+            animation: pulse-badge 2s infinite;
+        }
+        @keyframes pulse-badge {
+            0%,100% { transform: scale(1);}
+            50% { transform: scale(1.12);}
         }
         .hero-titulo {
-            font-size: 2.9em;
-            font-weight: 900;
+            font-family: 'Poppins', Arial, sans-serif;
+            font-size: 2.6em;
+            font-weight: 800;
             color: var(--azul-principal);
             margin-bottom: 12px;
             letter-spacing: 2px;
             line-height: 1.08;
-            text-shadow: 0 2px 24px #bcd8fc1c;
+            text-shadow: 0 2px 20px #7cbcff13;
         }
         .hero-subtitulo {
-            font-size: 1.22em;
-            color: #405b74;
-            margin-bottom: 36px;
-            max-width: 540px;
+            font-size: 1.17em;
+            color: #415d84;
+            margin-bottom: 32px;
+            max-width: 520px;
             font-weight: 500;
         }
         .cta-main {
             background: var(--azul-gradiente);
             color: #fff;
-            font-size: 1.15em;
+            font-size: 1.13em;
             border: none;
-            border-radius: 8px;
+            border-radius: 9px;
             padding: 15px 38px;
             cursor: pointer;
-            box-shadow: 0 4px 16px #a8cbff50;
             font-weight: 700;
-            margin-bottom: 20px;
             text-decoration: none;
             display: inline-block;
-            transition: background 0.18s, transform 0.15s;
+            transition: background 0.18s, box-shadow 0.15s, transform 0.14s;
+            box-shadow: 0 4px 16px #a3d5ff52;
+            margin-bottom: 16px;
+            animation: hero-cta-float 2.2s infinite alternate;
+        }
+        @keyframes hero-cta-float {
+            0% { box-shadow: 0 4px 16px #a3d5ff52; }
+            100% { box-shadow: 0 12px 38px #63baff40; transform: translateY(-5px) scale(1.04);}
         }
         .cta-main:hover {
-            background: linear-gradient(100deg, #43a1e5 0%, #2960a8 100%);
+            background: linear-gradient(90deg, #46a6ff 0%, #21509c 100%);
             color: #fff;
             transform: scale(1.07);
         }
-        .hero-right {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 2;
-        }
+        .hero-right { flex: 1; display: flex; align-items: center; justify-content: center; z-index: 2; }
         .hero-right img {
-            width: 340px;
-            max-width: 95vw;
-            border-radius: 22px;
-            box-shadow: 0 8px 32px #a4caf94d;
+            width: 390px; max-width: 97vw;
+            border-radius: 26px;
+            box-shadow: 0 8px 32px #aedcff45;
             background: #fff;
         }
-        /* Cubo 3D */
+        /* CUBO 3D */
         .cubo-3d-bg {
             position: absolute;
             left: 54%;
-            top: 50%;
-            width: 310px;
-            height: 310px;
+            top: 48%;
+            width: 320px; height: 320px;
             transform: translate(-46%,-51%);
-            z-index: 0;
-            pointer-events: none;
-            filter: drop-shadow(0 2px 34px #2960a880);
-            opacity: 0.7;
+            z-index: 0; pointer-events: none;
+            filter: drop-shadow(0 2px 44px #46a6ff92);
+            opacity: 0.6;
         }
-        /* FEATURES */
+        /* FEATURES/GLASS */
         .section-title {
             color: var(--azul-principal);
             font-size: 2em;
             text-align: center;
-            margin: 68px 0 22px 0;
+            margin: 70px 0 26px 0;
             letter-spacing: 1px;
+            font-family: 'Poppins', Arial, sans-serif;
             font-weight: 800;
         }
         .features-section {
-            display: flex; flex-wrap: wrap; gap: 32px 22px; justify-content: center; padding: 14px 4vw 36px 4vw;
+            display: flex; flex-wrap: wrap; gap: 34px 22px; justify-content: center; padding: 18px 4vw 40px 4vw;
         }
         .feature-card {
             background: var(--glass);
-            border-radius: 22px;
+            border-radius: 24px;
             box-shadow: var(--sombra);
-            padding: 32px 28px 26px 28px;
-            max-width: 260px;
-            flex: 1 1 230px;
-            min-width: 190px;
+            padding: 38px 32px 26px 32px;
+            max-width: 270px; min-width: 210px; height: 290px;
             text-align: center;
-            border: 1.4px solid var(--borde-tarjeta);
-            backdrop-filter: blur(3px);
-            transition: transform 0.18s, box-shadow 0.21s;
-            height: 278px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
+            border: 1.5px solid var(--borde-tarjeta);
+            backdrop-filter: blur(8px);
+            transition: transform 0.18s, box-shadow 0.21s, background 0.18s;
+            display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+            opacity: 0; transform: translateY(32px); /* scroll reveal default */
         }
+        .feature-card.visible { opacity: 1; transform: translateY(0); transition: all 0.9s cubic-bezier(.19,1,.22,1);}
         .feature-card:hover {
-            transform: scale(1.06) translateY(-5px);
-            background: #f4fafd;
-            box-shadow: 0 14px 38px #a0cdfb33;
+            background: var(--glass-hover);
+            transform: scale(1.07) translateY(-4px);
+            box-shadow: 0 14px 38px #46a6ff33;
         }
         .feature-icon {
             font-size: 2.35em;
-            margin-bottom: 13px;
-            color: var(--azul-principal);
+            margin-bottom: 17px;
+            color: var(--azul-acento);
         }
         .feature-title {
             font-size: 1.13em;
             font-weight: 700;
-            color: #264679;
-            margin-bottom: 7px;
+            color: #225084;
+            margin-bottom: 9px;
         }
         .feature-desc {
-            font-size: 1.02em;
+            font-size: 1.01em;
             color: #263447;
             margin-bottom: 1px;
             flex: 1;
@@ -203,157 +211,176 @@
         /* PASOS */
         .steps-section {
             background: #fff;
-            border-radius: 20px;
+            border-radius: 22px;
             max-width: 1000px;
-            margin: 36px auto 0 auto;
-            box-shadow: 0 2px 20px #a6c8f844;
-            padding: 44px 30px 38px 30px;
+            margin: 44px auto 0 auto;
+            box-shadow: 0 2px 20px #46a6ff25;
+            padding: 48px 34px 38px 34px;
         }
         .steps-list {
             display: flex;
             justify-content: space-around;
-            gap: 22px;
+            gap: 28px;
             flex-wrap: wrap;
         }
         .step-item {
-            background: var(--hover-tarjeta);
+            background: var(--glass);
             border-radius: 18px;
-            box-shadow: 0 2px 14px #b4c6e94a;
+            box-shadow: 0 2px 14px #b4d6fa4a;
             padding: 27px 19px 19px 19px;
-            min-width: 180px; max-width: 270px;
+            min-width: 180px; max-width: 270px; height: 180px;
             flex: 1 1 170px;
             text-align: center;
-            transition: transform 0.14s;
+            transition: transform 0.14s, box-shadow 0.17s;
+            opacity: 0; transform: translateY(32px); /* scroll reveal */
         }
-        .step-item:hover {
-            transform: scale(1.06) rotate(0.7deg);
-        }
+        .step-item.visible { opacity: 1; transform: translateY(0); transition: all 0.8s cubic-bezier(.19,1,.22,1);}
+        .step-item:hover { transform: scale(1.06) rotate(0.5deg);}
         .step-icon {
-            font-size: 2.2em;
-            margin-bottom: 9px;
-            color: var(--azul-principal);
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: var(--azul-acento);
         }
         .step-title {
-            font-weight: 700;
-            color: #26508a;
-            margin-bottom: 6px;
+            font-weight: 700; color: #225084; margin-bottom: 6px;
         }
         .step-desc {
-            color: #384e68;
-            font-size: 1.04em;
+            color: #415d84; font-size: 1.02em;
         }
-        /* ESTRUCTURA */
-        .estructura-section {
-            background: #f2f8fc;
-            border-radius: 18px;
-            box-shadow: 0 2px 14px #a6c8f824;
-            max-width: 980px;
-            margin: 50px auto 24px auto;
-            padding: 38px 32px 24px 32px;
+        /* TESTIMONIOS */
+        .testimonio-section {
+            max-width: 800px;
+            margin: 56px auto 0 auto;
+            background: var(--glass-hover);
+            border-radius: 24px;
+            box-shadow: 0 2px 32px #90cdfb21;
+            padding: 44px 32px 32px 32px;
+            text-align: center;
+            position: relative;
         }
-        .estructura-title {
-            color: var(--azul-principal);
-            font-size: 1.4em;
-            font-weight: 700;
-            margin-bottom: 16px;
+        .testi-quote {
+            font-size: 1.33em;
+            font-style: italic;
+            color: #14447a;
+            margin-bottom: 22px;
         }
-        .estructura-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 18px 40px;
-            align-items: flex-start;
+        .testi-user {
+            display: flex; align-items: center; justify-content: center; gap: 14px;
         }
-        .estructura-item {
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px #cbe6fc29;
-            padding: 16px 19px;
-            min-width: 180px;
-            max-width: 260px;
-            font-size: 1.08em;
-            color: #225084;
-            margin-bottom: 9px;
-            font-family: 'Segoe UI', Arial, sans-serif;
+        .testi-avatar {
+            width: 60px; height: 60px; border-radius: 50%;
+            box-shadow: 0 4px 12px #46a6ff30; border: 3px solid #46a6ff70;
         }
+        .testi-user-info {
+            text-align: left;
+        }
+        .testi-name {
+            font-weight: 700; color: var(--azul-principal); font-size: 1.09em;
+        }
+        .testi-role {
+            color: #2960a8; font-size: 1em;
+        }
+        .testi-stars { color: #FFD700; margin-top: 2px;}
         /* DEMO/CAPTURAS */
         .demo-section {
             text-align: center;
-            margin: 56px 0 18px 0;
+            margin: 58px 0 24px 0;
         }
         .demo-section img {
-            max-width: 430px;
-            max-height: 320px;
-            margin: 0 auto 18px auto;
+            max-width: 420px; max-height: 320px;
+            margin: 0 auto 20px auto;
             background: #fff;
             border-radius: 16px;
-            box-shadow: 0 4px 18px #c7e6fa50;
+            box-shadow: 0 4px 18px #a9d3fc50;
             display: block;
         }
         .btn-github {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: #1b3660;
-            color: #fff;
+            display: inline-flex; align-items: center; gap: 8px;
+            background: #14447a; color: #fff;
             padding: 10px 22px;
-            border-radius: 7px;
-            font-weight: 500;
-            font-size: 1.1em;
-            text-decoration: none;
-            transition: background 0.2s;
-            box-shadow: 0 2px 7px #eee;
+            border-radius: 8px;
+            font-weight: 500; font-size: 1.09em;
+            text-decoration: none; transition: background 0.2s;
+            box-shadow: 0 2px 8px #eee;
             margin-top: 18px;
         }
         .btn-github:hover {
-            background: #3a68b3;
-            color: var(--azul-principal);
+            background: var(--azul-acento); color: #14447a;
         }
-        /* FOOTER */
+        /* FOOTER PRO */
         .footer {
-            margin-top: 70px;
+            margin-top: 80px;
             text-align: center;
-            padding: 28px 0 18px 0;
-            background: #fff;
-            font-size: 1.08em;
-            color: #88a8d4;
+            padding: 34px 0 16px 0;
+            background: linear-gradient(90deg,#184378 40%, #46a6ff 100%);
+            font-size: 1.09em;
+            color: #e3f2fd;
             letter-spacing: 1px;
-            border-top: 1.2px solid #e2f1fb;
+            border-top: 1.5px solid #d1e5fa;
         }
+        .footer-links {
+            margin-bottom: 14px;
+            display: flex; justify-content: center; gap: 24px; flex-wrap: wrap;
+        }
+        .footer-links a {
+            color: #fff; text-decoration: none;
+            font-weight: 500; font-size: 1em; transition: color 0.19s;
+        }
+        .footer-links a:hover { color: #b2e4ff; }
+        .footer-social {
+            margin-top: 7px;
+        }
+        .footer-social a {
+            color: #fff; font-size: 1.3em; margin: 0 10px;
+            transition: color 0.16s;
+        }
+        .footer-social a:hover { color: #FFD700;}
         /* BURBUJAS ANIMADAS */
         #burbujas-bg {
-            position:fixed;
-            left:0; top:0;
+            position:fixed; left:0; top:0;
             width:100vw; height:100vh;
-            pointer-events:none;
-            z-index:0;
+            pointer-events:none; z-index:0;
         }
-        /* RESPONSIVE */
-        @media (max-width: 1100px) {
-            .hero { flex-direction: column; padding: 44px 4vw 24px 4vw; gap:28px; min-height: unset;}
-            .hero-right img { width: 230px;}
-            .features-section { gap: 18px 7px;}
+        /* SCROLL TO TOP BUTTON */
+        #backToTop {
+            position: fixed;
+            right: 16px; bottom: 32px;
+            background: var(--azul-gradiente);
+            color: #fff; border: none;
+            border-radius: 50%; width: 50px; height: 50px;
+            font-size: 2em;
+            box-shadow: 0 2px 12px #7fc8ff44;
+            cursor: pointer; z-index: 999;
+            display: none; align-items: center; justify-content: center;
+            transition: background 0.19s, transform 0.19s;
         }
-        @media (max-width: 850px) {
-            header { padding: 20px 3vw 8px 3vw;}
-            .hero { padding: 36px 3vw 16px 3vw; }
-            .cubo-3d-bg { width: 150px; height: 150px;}
-            .estructura-list { flex-direction: column; gap: 8px;}
-            .feature-card { padding: 22px 10px 16px 10px; }
+        #backToTop:hover { background: #184378; transform: scale(1.09);}
+        @media (max-width: 1050px) {
+            .hero { flex-direction: column; padding: 48px 4vw 26px 4vw; gap:32px; min-height: unset;}
+            .hero-right img { width: 250px;}
+            .features-section { gap: 16px 7px;}
+            .feature-card, .step-item { max-width: 95vw; }
+        }
+        @media (max-width: 700px) {
+            header { flex-direction: column; padding: 13px 2vw 7px 2vw;}
+            nav { flex-wrap: wrap; gap: 7px;}
+            nav a { font-size: 0.96em; margin-left: 0; margin-right: 11px;}
+            .hero-right img { width: 97vw; max-width: 220px;}
+            .feature-card, .step-item { min-width: 95vw; }
         }
         @media (max-width: 600px) {
-            header, .hero, .features-section, .steps-section, .estructura-section, .demo-section { padding-left: 3vw; padding-right: 3vw;}
-            .hero, .features-section, .steps-section, .estructura-section, .demo-section { padding: 10px 2vw;}
-            nav { flex-wrap: wrap; gap: 7px;}
-            nav a { font-size: 0.98em; margin-left: 0; margin-right: 11px;}
-            .hero-right img { width: 98vw; max-width: 250px;}
-            .feature-card, .step-item, .estructura-item { min-width: 95vw; max-width: 98vw;}
+            .hero, .features-section, .steps-section, .testimonio-section, .demo-section { padding: 10px 2vw;}
+            .footer-links { gap: 10px;}
+            .testimonio-section { padding: 30px 4vw;}
+            .feature-card, .step-item { padding: 18px 8px;}
+            .testi-quote { font-size: 1.07em;}
         }
     </style>
 </head>
 <body>
     <header>
         <div class="logo-box">
-            <img src="img/academygo_logo.png" alt="Logo AcademyGo" class="logo-academygo">
+            <img src="img/academygo_logo.svg" alt="Logo AcademyGo" class="logo-academygo">
             <span class="titulo-portfolio">AcademyGo</span>
         </div>
         <nav>
@@ -362,37 +389,31 @@
             <a href="index.html#portfolio">PROYECTOS</a>
         </nav>
     </header>
-
-    <!-- HERO PRINCIPAL -->
-    <section class="hero">
-        <!-- Cubo 3D -->
-        <div class="cubo-3d-bg" id="cubo-3d-bg"></div>
+    <!-- HERO -->
+    <section class="hero" id="home">
         <div class="hero-left">
-            <h1 class="hero-titulo">AcademyGo<br>Gestión integral de academias</h1>
+            <div class="badge-nuevo">NUEVO · 2025</div>
+            <div class="hero-titulo">AcademyGo<br>La gestión de academias en modo DIOS</div>
             <div class="hero-subtitulo">
-                <b>Simplifica la administración de tu academia con un software completo, seguro y personalizable.</b><br>
-                Control de alumnos, matrículas, cursos, profesores, recibos y comunicaciones en un solo lugar. ¡Olvídate de Excel!
+                Gestiona tu academia como nunca antes: alumnos, cursos, profesores, pagos y comunicaciones.<br>
+                Todo desde un único panel <b>rápido, seguro y personalizable</b>.
             </div>
             <a href="mailto:yosoyeltato2020@hotmail.com" class="cta-main">
-                <i class="fa-solid fa-paper-plane"></i> Solicita demo
-            </a>
-            <a href="https://github.com/yosoyeltato2020/AcademyGo" target="_blank" class="btn-github">
-                <i class="fab fa-github"></i> Ver código en GitHub
+                <i class="fa-solid fa-rocket"></i> Solicita demo ahora
             </a>
         </div>
         <div class="hero-right">
-            <img src="img/academygo_hero.png" alt="Demo AcademyGo">
+            <img src="img/academygo_hero.png" alt="AcademyGo Dashboard">
         </div>
+        <div class="cubo-3d-bg" id="cubo-3d-bg"></div>
     </section>
-
-    <!-- THREE.JS CUBO 3D -->
+    <!-- CUBO 3D THREE.JS -->
     <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
     <script>
-        // Cubo 3D azul en hero
         const cuboDiv = document.getElementById('cubo-3d-bg');
         const renderer = new THREE.WebGLRenderer({ alpha:true, antialias:true });
         renderer.setClearColor(0x000000, 0);
-        renderer.setSize(cuboDiv.offsetWidth || 310, cuboDiv.offsetHeight || 310);
+        renderer.setSize(cuboDiv.offsetWidth || 320, cuboDiv.offsetHeight || 320);
         cuboDiv.appendChild(renderer.domElement);
         renderer.domElement.style.width = "100%";
         renderer.domElement.style.height = "100%";
@@ -400,65 +421,65 @@
         renderer.domElement.style.inset = "0";
         renderer.domElement.style.zIndex = "0";
         const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(50, (cuboDiv.offsetWidth||310)/(cuboDiv.offsetHeight||310), 0.1, 1000);
+        const camera = new THREE.PerspectiveCamera(50, (cuboDiv.offsetWidth||320)/(cuboDiv.offsetHeight||320), 0.1, 1000);
         camera.position.z = 4;
         const geometry = new THREE.BoxGeometry();
-        const material = new THREE.MeshStandardMaterial({ color: 0x2960a8, roughness:0.36, metalness:0.48 });
+        const material = new THREE.MeshStandardMaterial({ color: 0x21509c, roughness:0.34, metalness:0.37 });
         const cube = new THREE.Mesh(geometry, material);
         scene.add(cube);
-        scene.add(new THREE.AmbientLight(0xffffff, 0.82));
-        const light = new THREE.PointLight(0xffffff, 1.17);
+        scene.add(new THREE.AmbientLight(0xffffff, 0.9));
+        const light = new THREE.PointLight(0xffffff, 1.1);
         light.position.set(3, 3, 3);
         scene.add(light);
         function animate() {
             requestAnimationFrame(animate);
             cube.rotation.x += 0.013;
-            cube.rotation.y += 0.017;
+            cube.rotation.y += 0.016;
             renderer.render(scene, camera);
         }
         animate();
         window.addEventListener("resize", function() {
-            const width = cuboDiv.offsetWidth || 310;
-            const height = cuboDiv.offsetHeight || 310;
+            const width = cuboDiv.offsetWidth || 320;
+            const height = cuboDiv.offsetHeight || 320;
             renderer.setSize(width, height);
             camera.aspect = width/height;
             camera.updateProjectionMatrix();
         });
     </script>
 
-    <!-- SECCIÓN FEATURES -->
-    <h2 class="section-title">¿Por qué elegir AcademyGo?</h2>
-    <section class="features-section">
+    <!-- FEATURES -->
+    <h2 class="section-title">¿Por qué AcademyGo?</h2>
+    <section class="features-section" id="features">
         <div class="feature-card">
             <div class="feature-icon"><i class="fa-solid fa-user-graduate"></i></div>
             <div class="feature-title">Gestión de alumnos</div>
-            <div class="feature-desc">Alta/baja, fichas completas, historial, observaciones, familias, búsqueda instantánea y más.</div>
+            <div class="feature-desc">Fichas completas, historial, familias, búsqueda instantánea, observaciones y más.</div>
         </div>
         <div class="feature-card">
             <div class="feature-icon"><i class="fa-solid fa-chalkboard-teacher"></i></div>
             <div class="feature-title">Matrículas y cursos</div>
-            <div class="feature-desc">Organiza matrículas por curso y grupo. Control total de plazas, horarios, asistencia y notas.</div>
+            <div class="feature-desc">Organiza matrículas, cursos y grupos. Controla plazas, horarios, asistencia y notas.</div>
         </div>
         <div class="feature-card">
             <div class="feature-icon"><i class="fa-solid fa-users-gear"></i></div>
             <div class="feature-title">Profesores y clases</div>
-            <div class="feature-desc">Asigna profesores, gestiona calendarios, clases, grupos y tareas. Informes y exportación fácil.</div>
+            <div class="feature-desc">Asigna profesores, gestiona calendarios y grupos. Informes y exportación sencilla.</div>
         </div>
         <div class="feature-card">
             <div class="feature-icon"><i class="fa-solid fa-money-check-alt"></i></div>
             <div class="feature-title">Recibos y pagos</div>
-            <div class="feature-desc">Emite recibos, lleva el control de cobros y genera listados en PDF/Excel para tu contabilidad.</div>
+            <div class="feature-desc">Emite recibos, controla cobros y genera listados PDF/Excel para contabilidad.</div>
         </div>
         <div class="feature-card">
             <div class="feature-icon"><i class="fa-solid fa-envelope"></i></div>
             <div class="feature-title">Comunicaciones</div>
-            <div class="feature-desc">Envía avisos por email, genera circulares, y centraliza la comunicación con familias y profesores.</div>
+            <div class="feature-desc">Envía avisos por email, genera circulares y comunica con familias y profesores.</div>
         </div>
     </section>
 
-    <!-- SECCIÓN PASOS -->
+    <!-- PASOS -->
     <h2 class="section-title">¿Cómo funciona?</h2>
-    <section class="steps-section">
+    <section class="steps-section" id="steps">
         <div class="steps-list">
             <div class="step-item">
                 <div class="step-icon"><i class="fa-solid fa-clipboard-list"></i></div>
@@ -468,7 +489,7 @@
             <div class="step-item">
                 <div class="step-icon"><i class="fa-solid fa-user-plus"></i></div>
                 <div class="step-title">2. Añade alumnos y cursos</div>
-                <div class="step-desc">Importa o añade manualmente tus datos y comienza a gestionar todo en la nube o local.</div>
+                <div class="step-desc">Importa o añade manualmente tus datos y empieza a gestionar todo.</div>
             </div>
             <div class="step-item">
                 <div class="step-icon"><i class="fa-solid fa-chalkboard"></i></div>
@@ -483,23 +504,29 @@
         </div>
     </section>
 
-    <!-- SECCIÓN ESTRUCTURA FUNCIONAL -->
-    <section class="estructura-section">
-        <div class="estructura-title">Estructura funcional</div>
-        <div class="estructura-list">
-            <div class="estructura-item"><b>Dashboard</b>: visión global y KPIs</div>
-            <div class="estructura-item"><b>Alumnos</b>: fichas, historial, tutores</div>
-            <div class="estructura-item"><b>Cursos y grupos</b>: gestión completa</div>
-            <div class="estructura-item"><b>Profesores</b>: horarios, asignación</div>
-            <div class="estructura-item"><b>Recibos y pagos</b>: facturación, cobros</div>
-            <div class="estructura-item"><b>Informes</b>: PDF, Excel, histórico</div>
-            <div class="estructura-item"><b>Comunicaciones</b>: emails, avisos, circulares</div>
-            <div class="estructura-item"><b>Personalización</b>: logotipo, usuarios, permisos</div>
+    <!-- TESTIMONIO -->
+    <section class="testimonio-section" id="testimonio">
+        <div class="testi-quote">
+            “Desde que usamos AcademyGo, la gestión de nuestra academia es un 70% más rápida y transparente. Los informes y la comunicación con familias son geniales.”
+        </div>
+        <div class="testi-user">
+            <img src="img/testimonio_director.png" alt="Foto director academia" class="testi-avatar">
+            <div class="testi-user-info">
+                <div class="testi-name">María G. Torres</div>
+                <div class="testi-role">Directora en Centro Idiomas ProLingua</div>
+                <div class="testi-stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- DEMO Y CAPTURAS -->
-    <section class="demo-section">
+    <section class="demo-section" id="demo">
         <h2 class="section-title">Demo y capturas</h2>
         <img src="img/academygo_dashboard.png" alt="Dashboard AcademyGo">
         <img src="img/academygo_alumnos.png" alt="Gestión de Alumnos AcademyGo">
@@ -514,18 +541,31 @@
         </a>
     </section>
 
+    <!-- FOOTER PRO -->
     <footer class="footer">
-        &copy; 2025 Ismael López — Ismadev Solutions · Made with 💙
+        <div class="footer-links">
+            <a href="index.html#portfolio">Proyectos</a>
+            <a href="index.html#about">Sobre mí</a>
+            <a href="mailto:yosoyeltato2020@hotmail.com">Contacto</a>
+            <a href="aviso-legal.html">Aviso Legal</a>
+        </div>
+        <div class="footer-social">
+            <a href="https://github.com/yosoyeltato2020" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/ismael-lopez-morales" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:yosoyeltato2020@hotmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+        <div style="margin-top:12px; font-size:0.97em;">
+            &copy; 2025 Ismael López — Ismadev Solutions · Made with 💙
+        </div>
     </footer>
-
-    <!-- BURBUJAS FONDO -->
+    <!-- BURBUJAS ANIMADAS -->
     <canvas id="burbujas-bg"></canvas>
     <script>
         // BURBUJAS ANIMADAS
         const canvas = document.getElementById('burbujas-bg');
         const ctx = canvas.getContext('2d');
         let burbujas = [];
-        const colores = ["#2960a8","#43a1e5","#9bbbe9","#d0e7fa","#b9cfe8"];
+        const colores = ["#2960a8","#46a6ff","#9bbbe9","#d0e7fa","#b9cfe8"];
         function resizeCanvas() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
@@ -539,7 +579,7 @@
                 y: Math.random()*window.innerHeight,
                 r: 19 + Math.random()*32,
                 color: colores[Math.floor(Math.random()*colores.length)],
-                vy: 0.37 + Math.random()*0.42,
+                vy: 0.34 + Math.random()*0.4,
                 vx: (Math.random()-0.5)*0.31,
                 alpha: 0.13 + Math.random()*0.13
             });
@@ -568,6 +608,35 @@
             requestAnimationFrame(dibujaBurbujas);
         }
         dibujaBurbujas();
+    </script>
+    <!-- SCROLL REVEAL ANIMACIONES -->
+    <script>
+    function revealOnScroll(selector, clase='visible') {
+        const obs = new IntersectionObserver(entries=>{
+            entries.forEach(e=>{
+                if(e.isIntersecting){
+                    e.target.classList.add(clase);
+                    obs.unobserve(e.target);
+                }
+            });
+        }, {threshold: 0.22});
+        document.querySelectorAll(selector).forEach(el=>obs.observe(el));
+    }
+    revealOnScroll('.feature-card');
+    revealOnScroll('.step-item');
+    </script>
+    <!-- BOTÓN BACK TO TOP -->
+    <button id="backToTop" title="Volver arriba"><i class="fa-solid fa-arrow-up"></i></button>
+    <script>
+        // Mostrar botón cuando el usuario hace scroll
+        const btn = document.getElementById('backToTop');
+        window.addEventListener('scroll', ()=>{
+            if(window.scrollY > 340){ btn.style.display = 'flex'; }
+            else{ btn.style.display = 'none'; }
+        });
+        btn.addEventListener('click', ()=>{
+            window.scrollTo({top:0, behavior:'smooth'});
+        });
     </script>
 </body>
 </html>
